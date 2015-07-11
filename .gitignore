@@ -2,7 +2,7 @@
 .Rhistory
 .RData
 .Rproj
-R/
+R/dev/
 vignettes/
 NAMESPACE
 man/
