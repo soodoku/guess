@@ -4,19 +4,20 @@
 \alias{transmat}
 \title{transmat: Across wave transition matrix}
 \usage{
-transmat(pre_test_var, pst_test_var, n_params, subset = NULL)
+transmat(pre_test_var, pst_test_var, n_params = 9, subset = NULL)
 }
 \arguments{
-\item{pre_test_var}{}
+\item{pre_test_var}{A vector carrying pre-test scores of a particular item}
 
-\item{pst_test_var}{}
+\item{pst_test_var}{A vector carrying post-test scores of a particular item}
 
-\item{n_params}{}
+\item{n_params}{If there are no don't know responses, n_params=4, else it is 9. Default=9}
 
-\item{subset}{}
+\item{subset}{A dummy vector indicating rows of the relevant subset.}
 }
 \value{
-a numeric vector. Assume 1 denotes correct answer, 0 incorrect, and d ignorance.
+a numeric vector.
+Assume 1 denotes correct answer, 0 incorrect, and d ignorance.
 When there is no don't know option and no missing, the entries are: x00, x10, x01, x11
 When there is a don't know option or missing, the entries of the vector are: x00, x10, xd0, x01, x11, xd1, xd0, x1d, xdd
 }
@@ -26,5 +27,6 @@ Missing values are treated as ignorance. Don't know responses need to be coded a
 }
 \examples{
 pre_test_var <- c(1,0,0,1,0,1,0); pst_test_var <- c(1,0,1,1,0,1,1); transmat(pre_test_var, pst_test_var, 4)
+pre_test_var <- c(1,0,0,1,NA,NA,0,1,0); pst_test_var <- c(1,0,1,NA,1,0,1,1,NA); transmat(pre_test_var, pst_test_var, 9)
 }
 

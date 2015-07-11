@@ -2,18 +2,20 @@
 #'
 #' Cross-wave table of transitions. Converts the table to a vector with a specific order. Used internally. 
 #' Missing values are treated as ignorance. Don't know responses need to be coded as NA.
-#' @param pre_test_var 
-#' @param pst_test_var 
-#' @param n_params  
-#' @param subset  
-#' @return a numeric vector. Assume 1 denotes correct answer, 0 incorrect, and d ignorance.
+#' @param pre_test_var A vector carrying pre-test scores of a particular item
+#' @param pst_test_var A vector carrying post-test scores of a particular item
+#' @param n_params     If there are no don't know responses, n_params=4, else it is 9. Default=9
+#' @param subset       A dummy vector indicating rows of the relevant subset.  
+#' @return a numeric vector. 
+#' Assume 1 denotes correct answer, 0 incorrect, and d ignorance.
 #' When there is no don't know option and no missing, the entries are: x00, x10, x01, x11
 #' When there is a don't know option or missing, the entries of the vector are: x00, x10, xd0, x01, x11, xd1, xd0, x1d, xdd
 #' @export
 #' @examples
 #' pre_test_var <- c(1,0,0,1,0,1,0); pst_test_var <- c(1,0,1,1,0,1,1); transmat(pre_test_var, pst_test_var, 4)
+#' pre_test_var <- c(1,0,0,1,NA,NA,0,1,0); pst_test_var <- c(1,0,1,NA,1,0,1,1,NA); transmat(pre_test_var, pst_test_var, 9)
 
-transmat <- function(pre_test_var, pst_test_var, n_params, subset=NULL) 
+transmat <- function(pre_test_var, pst_test_var, n_params=9, subset=NULL) 
 {	
 	if (!is.null(subset))
 	{
@@ -28,13 +30,14 @@ transmat <- function(pre_test_var, pst_test_var, n_params, subset=NULL)
 			
 	if (n_params ==4) 
 	{ 
-		if (sum(is.na(pre_test_var) > 0)) stop("These data should not have any missing values. Missing values on knowledge questions can be treated as ignorance.")
+		if (sum(is.na(pre_test_var) > 0)) stop("These data should not have any missing values. \n Missing values on knowledge questions can be treated as ignorance.")
 
 		printres <- t(table(pre_test_var, pst_test_var))
 		res <- c(printres)
 
 		# Print
 		prmatrix(printres)
+		cat("\n Returned Vector: \n", res, "\n")
 
 	} 
 
@@ -45,6 +48,7 @@ transmat <- function(pre_test_var, pst_test_var, n_params, subset=NULL)
 
 		# Print
 		prmatrix(printres)
+		cat("\n Returned Vector: \n", res, "\n")
 	}
 
   return(invisible(res))
