@@ -6,14 +6,18 @@ Over informative processes, naive estimator of learning -- difference between po
 
 We provide a few different ways to adjust estimates of learning for guessing. For now, we limit our attention to cases where the same battery of knowledge questions has been asked in both the pre- and the post-process wave. And to cases where closed-ended questions have been asked. (Guessing is not a serious issue on open-ended items. See more evidence for that in [DK Means DK](http://bullock.research.yale.edu/papers/DKs/DK.pdf) by Robert Luskin and John Bullock.)  More generally, the package implements the methods to adjust learning for guessing discussed in [this paper](http://gsood.com/research/papers/guess.pdf).
 
-**Dealing with Missing Data**  
+Some common issues with knowledge items: 
+
+1. **Dealing with Missing Data**  
 If you assume that the data are missing completely at random, you can simply ignore them. Generally, however, respondents tend to skip items they don't know. So missing responses on knowledge questions typically indicate ignorance. (Of course, it is important to investigate other potential reasons behind missing data. And we encourage researchers to take all precautions.) In our treatment, however, for simplicity sake, we treat missing as indicators of ignorance. 
 
-**Dealing with Don't Know**  
+2. **Dealing with Don't Know**  
 We now know a little bit about Don't Know. One generally strategy is to treat Don't Know responses as ignorance. But research suggests that on average there is approximately 3\% hidden knowledge behind Don't Know responses. See [DK Means DK](http://bullock.research.yale.edu/papers/DKs/DK.pdf) by Robert Luskin and John Bullock. Thus one can also choose to replace Don't Know responses with .03.
 
-**Standard Correction for Guessing**  
 
+#### Standard Correction for Guessing
+
+#### Latent Class Correction for Guessing
 
 ### Installation
 
@@ -49,6 +53,7 @@ pst_test <-  pre_test + cbind(c(0,1,1,0,0), c(0,1,0,0,1))
 lucky <- rep(.25, 2)
 
 # Unadjusted Effect
+# Treating Don't Know as ignorance
 colMeans(nona(pst_test) - nona(pre_test))
 ```
 
@@ -67,6 +72,22 @@ stndcor(pre_test, pst_test, lucky)
 ## [1,] 0.5333333
 ## [2,] 0.2666667
 ```
+
+#### Transition Matrix
+
+
+
+#### Estimates from the Latent Class Model
+
+
+
+#### Standard Errors
+
+
+
+#### Fit
+
+
 
 #### License
 Scripts are released under [GNU V3](http://www.gnu.org/licenses/gpl-3.0.en.html).
