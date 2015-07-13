@@ -54,7 +54,7 @@ To adjust estimates of learning for standard correction of guessing, use `stndco
 
 **Note About Data**
 
-In the sample data below, NAs reflect `Don't Know' responses. To calculate unadjusted effects, we treat `Don't Know` responses as indicators of ignorance. See [DK Means DK](http://bullock.research.yale.edu/papers/DKs/DK.pdf) by Luskin and Bullock. They estimate hidden knowledge behind `Don't Know' responses on closed-ended items at about 3%. Thus one can also choose to replace Don't Know responses with .03.
+In the sample data below, NAs reflect `Don't Know` responses. To calculate unadjusted effects, we treat `Don't Know` responses as indicators of ignorance. See [DK Means DK](http://bullock.research.yale.edu/papers/DKs/DK.pdf) by Luskin and Bullock. They estimate hidden knowledge behind `Don't Know' responses on closed-ended items at about 3%. Thus one can also choose to replace Don't Know responses with .03.
 
 
 ```r
