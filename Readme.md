@@ -47,7 +47,7 @@ pst_test <-  pre_test + cbind(c(0,1,1,0,0), c(0,1,0,0,1))
 lucky <- rep(.25, 2)
 
 # Unadjusted Effect
-colMeans(goji::nona(pst_test) - goji::nona(pre_test))
+colMeans(nona(pst_test) - nona(pre_test))
 ```
 
 ```
