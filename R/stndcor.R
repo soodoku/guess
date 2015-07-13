@@ -25,11 +25,11 @@ stndcor <- function(pre_test=NULL, pst_test=NULL, lucky=NULL)
 	pre_test_cor  <- pst_test_cor <- stnd_cor <- matrix(ncol=1, nrow=n_items)
 		
 	for (i in 1:n_items)
-		{
-			pre_test_cor[i] <- sum(pre_test[,i], na.rm = TRUE) - length(which(pre_test[,i] == 0))/(1/lucky[i] - 1)
-			pst_test_cor[i] <- sum(pst_test[,i], na.rm = TRUE) - length(which(pst_test[,i] == 0))/(1/lucky[i] - 1)
-			stnd_cor[i]     <- pst_test_cor[i] - pre_test_cor[i]
-		}
+	{
+		pre_test_cor[i] <- sum(pre_test[,i], na.rm = TRUE) - length(which(pre_test[,i] == 0))/(1/lucky[i] - 1)
+		pst_test_cor[i] <- sum(pst_test[,i], na.rm = TRUE) - length(which(pst_test[,i] == 0))/(1/lucky[i] - 1)
+		stnd_cor[i]     <- pst_test_cor[i] - pre_test_cor[i]
+	}
 
-		stnd_cor/nrow(pre_test)
+	stnd_cor/nrow(pre_test)
 }

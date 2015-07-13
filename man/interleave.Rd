@@ -15,6 +15,7 @@ interleave(vec1, vec2)
 interleaved vector
 }
 \description{
+Used Internally
 Interleave two character vectors. The output is a vector. The first entry is from the first vector.
 Vectors can be of different lengths. If one is shorter than the other, entries of unmatched longer vector are left un-interleaved.
 }

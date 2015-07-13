@@ -1,11 +1,11 @@
 #' Interleave
 #'
+#' Used Internally
 #' Interleave two character vectors. The output is a vector. The first entry is from the first vector.
 #' Vectors can be of different lengths. If one is shorter than the other, entries of unmatched longer vector are left un-interleaved.  
 #' @param vec1 first vector
 #' @param vec2 second vector
 #' @return interleaved vector
-#' @export
 #' @examples
 #' t1 <- paste0("t1", letters[1:5]); t2 <- paste0("t2", letters[1:5]); interleave(t1, t2)
 

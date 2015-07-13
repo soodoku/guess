@@ -1,4 +1,4 @@
-### guess: Adjust Estimates of Learning to Account for Guessing
+### guess: Estimates of Learning Adjusted for Guessing
 
 [![GPL-3.0](http://img.shields.io/:license-gpl-blue.svg)](http://opensource.org/licenses/GPL-3.0)
 
@@ -8,12 +8,10 @@ Implements the method to adjust learning for guessing in [this paper](http://gso
 
 To get the current development version from github:
 
-
-```r
+```{r install}
 # install.packages("devtools")
 library(devtools)
-devtools::install_github("soodoku/guess")
-devtools::install_github("soodoku/goji")
+#devtools::install_github("soodoku/guess")
 ```
 
 ### Usage
@@ -29,8 +27,7 @@ To adjust estimates of learning for standard correction of guessing, use `stndco
 **Note About Data**
 In the sample data below, NAs reflect `Don't Know' responses. To calculate unadjusted effects, we treat `Don't Know` responses as indicators of ignorance. See [DK Means DK](http://bullock.research.yale.edu/papers/DKs/DK.pdf) by Luskin and Bullock. They estimate hidden knowledge behind `Don't Know' responses on closed-ended items at about 3%. Thus one can also choose to replace Don't Know responses with .03.
 
-
-```r
+```{r stndcor}
 library(guess)
 pre_test <- data.frame(item1=c(1,0,0,1,0), item2=c(1,NA,0,1,0)) 
 pst_test <-  pre_test + cbind(c(0,1,1,0,0), c(0,1,0,0,1))
@@ -38,22 +35,9 @@ lucky <- rep(.25, 2)
 
 # Unadjusted Effect
 colMeans(goji::nona(pst_test) - goji::nona(pre_test))
-```
 
-```
-## item1 item2 
-##   0.4   0.2
-```
-
-```r
 # Adjusted Effect
 stndcor(pre_test, pst_test, lucky)
-```
-
-```
-##           [,1]
-## [1,] 0.5333333
-## [2,] 0.2666667
 ```
 
 #### License

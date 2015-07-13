@@ -2,5 +2,6 @@
 .Rhistory
 .RData
 .Rproj
+.Rmd
 R/dev/
 vignettes/
