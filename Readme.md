@@ -74,6 +74,16 @@ colMeans(nona(pst_test) - nona(pre_test))
 ```
 
 ```r
+# MCAR
+colMeans(pst_test - pre_test, na.rm=T)
+```
+
+```
+## item1 item2 
+##  0.40  0.25
+```
+
+```r
 # Adjusted Effect
 stndcor(pre_test, pst_test, lucky)
 ```
@@ -87,6 +97,38 @@ stndcor(pre_test, pst_test, lucky)
 #### Transition Matrix
 
 
+```r
+# Without Don't Know
+pre_test_var <- c(1,0,0,1,0,1,0) 
+pst_test_var <- c(1,0,1,1,0,1,1)
+transmat(pre_test_var, pst_test_var, 4)
+```
+
+```
+##   0 1
+## 0 2 0
+## 1 2 3
+## 
+##  Returned Vector: 
+##  2 2 0 3
+```
+
+```r
+# With Don't Know
+pre_test_var <- c(1,0,0,1,NA,NA,0,1,0)
+pst_test_var <- c(1,0,1,NA,1,0,1,1,NA)
+transmat(pre_test_var, pst_test_var, 9)
+```
+
+```
+##      0 1 <NA>
+## 0    1 0    1
+## 1    2 2    1
+## <NA> 1 1    0
+## 
+##  Returned Vector: 
+##  1 2 1 0 2 1 1 1 0
+```
 
 #### Estimates from the Latent Class Model
 

@@ -65,6 +65,9 @@ lucky <- rep(.25, 2)
 # Treating Don't Know as ignorance
 colMeans(nona(pst_test) - nona(pre_test))
 
+# MCAR
+colMeans(pst_test - pre_test, na.rm=T)
+
 # Adjusted Effect
 stndcor(pre_test, pst_test, lucky)
 ```
@@ -72,6 +75,15 @@ stndcor(pre_test, pst_test, lucky)
 #### Transition Matrix
 
 ```{r transmat}
+# Without Don't Know
+pre_test_var <- c(1,0,0,1,0,1,0) 
+pst_test_var <- c(1,0,1,1,0,1,1)
+transmat(pre_test_var, pst_test_var, 4)
+
+# With Don't Know
+pre_test_var <- c(1,0,0,1,NA,NA,0,1,0)
+pst_test_var <- c(1,0,1,NA,1,0,1,1,NA)
+transmat(pre_test_var, pst_test_var, 9)
 
 ```
 
