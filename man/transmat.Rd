@@ -26,7 +26,12 @@ Cross-wave table of transitions. Converts the table to a vector with a specific 
 Missing values are treated as ignorance. Don't know responses need to be coded as NA.
 }
 \examples{
-pre_test_var <- c(1,0,0,1,0,1,0); pst_test_var <- c(1,0,1,1,0,1,1); transmat(pre_test_var, pst_test_var, 4)
-pre_test_var <- c(1,0,0,1,NA,NA,0,1,0); pst_test_var <- c(1,0,1,NA,1,0,1,1,NA); transmat(pre_test_var, pst_test_var, 9)
+pre_test_var <- c(1,0,0,1,0,1,0);
+pst_test_var <- c(1,0,1,1,0,1,1);
+transmat(pre_test_var, pst_test_var, 4)
+# With NAs
+pre_test_var <- c(1,0,0,1,NA,NA,0,1,0);
+pst_test_var <- c(1,0,1,NA,1,0,1,1,NA);
+transmat(pre_test_var, pst_test_var, 9)
 }
 

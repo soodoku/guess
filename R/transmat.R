@@ -12,8 +12,13 @@
 #' When there is a don't know option or missing, the entries of the vector are: x00, x10, xd0, x01, x11, xd1, xd0, x1d, xdd
 #' @export
 #' @examples
-#' pre_test_var <- c(1,0,0,1,0,1,0); pst_test_var <- c(1,0,1,1,0,1,1); transmat(pre_test_var, pst_test_var, 4)
-#' pre_test_var <- c(1,0,0,1,NA,NA,0,1,0); pst_test_var <- c(1,0,1,NA,1,0,1,1,NA); transmat(pre_test_var, pst_test_var, 9)
+#' pre_test_var <- c(1,0,0,1,0,1,0); 
+#' pst_test_var <- c(1,0,1,1,0,1,1); 
+#' transmat(pre_test_var, pst_test_var, 4)
+#' # With NAs
+#' pre_test_var <- c(1,0,0,1,NA,NA,0,1,0); 
+#' pst_test_var <- c(1,0,1,NA,1,0,1,1,NA); 
+#' transmat(pre_test_var, pst_test_var, 9)
 
 transmat <- function(pre_test_var, pst_test_var, n_params=9, subset=NULL) 
 {	

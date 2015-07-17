@@ -28,7 +28,8 @@ The function also optionally takes a vector carrying names of the items. By defa
 However you can assign a vector of names separately via item_names.
 }
 \examples{
-pre_test <- data.frame(item1=c(1,0,0,1,0), item2=c(1,NA,0,1,0)); pst_test <-  pre_test + cbind(c(0,1,1,0,0), c(0,1,0,0,1))
+pre_test <- data.frame(item1=c(1,0,0,1,0), item2=c(1,NA,0,1,0));
+pst_test <-  pre_test + cbind(c(0,1,1,0,0), c(0,1,0,0,1))
 lucky <- rep(.25, 2); stndcor(pre_test, pst_test, lucky)
 }
 

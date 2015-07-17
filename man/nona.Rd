@@ -4,13 +4,13 @@
 \alias{nona}
 \title{No NAs}
 \usage{
-nona(x)
+nona(vec = NULL)
 }
 \arguments{
-\item{vector}{}
+\item{vec}{Required. Numeric vector.}
 }
 \value{
-vector
+Numeric vector
 }
 \description{
 Converts NAs to 0s

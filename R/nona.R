@@ -1,13 +1,13 @@
 #' No NAs
 #'
 #' Converts NAs to 0s
-#' @param vector 
-#' @return vector
+#' @param vec Required. Numeric vector. 
+#' @return Numeric vector
 #' @export
 #' @examples
 #' x <- c(NA, 1, 2); nona(x)
 
-nona <- function(x){
-	x[is.na(x)] <- 0; 
-	x
+nona <- function(vec=NULL){
+	vec[is.na(vec)] <- 0; 
+	vec
 }

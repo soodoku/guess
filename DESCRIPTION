@@ -6,7 +6,10 @@ Maintainer: Gaurav Sood <gsood07@gmail.com>
 Description: Implements Latent Class Method to Adjust Estimates of Learning for Guessing. 
 URL: http://github.com/soodoku/guess
 BugReports: http://github.com/soodoku/guess/issues
-Depends: R (>= 3.2.1)
-License: GPL (>= 2)
+Depends: 
+	R (>= 3.2.1),
+	Rsolnp,
+	ltm
+License: GPL (>= 3)
 LazyData: true
-Imports: Rsolnp, ltm, lme4
+Imports: Rsolnp, ltm
