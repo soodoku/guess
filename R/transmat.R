@@ -4,7 +4,6 @@
 #' Missing values are treated as ignorance. Don't know responses need to be coded as NA.
 #' @param pre_test_var A vector carrying pre-test scores of a particular item
 #' @param pst_test_var A vector carrying post-test scores of a particular item
-#' @param n_params     If there are no don't know responses, n_params=4, else it is 9. Default=9
 #' @param subset       A dummy vector indicating rows of the relevant subset.  
 #' @return a numeric vector. 
 #' Assume 1 denotes correct answer, 0 incorrect, and d ignorance.
@@ -14,13 +13,13 @@
 #' @examples
 #' pre_test_var <- c(1,0,0,1,0,1,0); 
 #' pst_test_var <- c(1,0,1,1,0,1,1); 
-#' transmat(pre_test_var, pst_test_var, 4)
+#' transmat(pre_test_var, pst_test_var)
 #' # With NAs
 #' pre_test_var <- c(1,0,0,1,NA,NA,0,1,0); 
 #' pst_test_var <- c(1,0,1,NA,1,0,1,1,NA); 
-#' transmat(pre_test_var, pst_test_var, 9)
+#' transmat(pre_test_var, pst_test_var)
 
-transmat <- function(pre_test_var, pst_test_var, n_params=9, subset=NULL) 
+transmat <- function(pre_test_var, pst_test_var, subset=NULL) 
 {	
 	if (!is.null(subset))
 	{
@@ -33,9 +32,8 @@ transmat <- function(pre_test_var, pst_test_var, n_params=9, subset=NULL)
 	# x00 <- x[1]; x10 <- x[2]; xd0 <- x[3]; x01 <- x[4]; x11 <- x[5]; xd1 <- x[6]; x0d <- x[7]; x1d <- x[8]; xdd <- x[9]
 	# res <- as.vector(table(pre_test_var, pst_test_var, exclude=NULL))[c(1,4,7,2,5,8,3,6,9)]
 			
-	if (n_params ==4) 
+	if (sum(is.na(pre_test_var)) == 0) 
 	{ 
-		if (sum(is.na(pre_test_var) > 0)) stop("These data should not have any missing values. \n Missing values on knowledge questions can be treated as ignorance.")
 
 		printres <- t(table(pre_test_var, pst_test_var))
 		res <- c(printres)
