@@ -89,9 +89,17 @@ stndcor(pre_test, pst_test, lucky)
 ```
 
 ```
-##           [,1]
-## [1,] 0.5333333
-## [2,] 0.2666667
+## $pre
+##     item1     item2 
+## 0.2000000 0.2666667 
+## 
+## $pst
+##     item1     item2 
+## 0.7333333 0.5333333 
+## 
+## $learn
+##     item1     item2 
+## 0.5333333 0.2666667
 ```
 
 #### Transition Matrix
@@ -101,7 +109,7 @@ stndcor(pre_test, pst_test, lucky)
 # Without Don't Know
 pre_test_var <- c(1,0,0,1,0,1,0) 
 pst_test_var <- c(1,0,1,1,0,1,1)
-transmat(pre_test_var, pst_test_var, 4)
+transmat(pre_test_var, pst_test_var)
 ```
 
 ```
@@ -117,7 +125,7 @@ transmat(pre_test_var, pst_test_var, 4)
 # With Don't Know
 pre_test_var <- c(1,0,0,1,NA,NA,0,1,0)
 pst_test_var <- c(1,0,1,NA,1,0,1,1,NA)
-transmat(pre_test_var, pst_test_var, 9)
+transmat(pre_test_var, pst_test_var)
 ```
 
 ```
