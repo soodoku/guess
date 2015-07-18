@@ -46,14 +46,10 @@ library(devtools)
 
 To adjust estimates of learning for standard correction of guessing, use `stndcor`. The function requires takes pre test and post test data frames containing responses to the items on the pre- and the post-test, and a `lucky` vector that contains the probability of getting an item correct when guessing randomly. Under standard guessing correction, it is taken to be inverse of total number of options. 
 
-**Two important notes regarding how the data should be structured:**
+**Structure of the Input Data:**
 
-1. For current purposes, we assume missing responses to indicate ignorance. Thus code missing responses as 0.
-2. If the items offer an option to mark `Don't know`, code all `Don't Know` responses as NA.
-
-**Note About Data**
-
-In the sample data below, NAs reflect `Don't Know` responses. To calculate unadjusted effects, we treat `Don't Know` responses as indicators of ignorance. See [DK Means DK](http://bullock.research.yale.edu/papers/DKs/DK.pdf) by Luskin and Bullock. They estimate hidden knowledge behind `Don't Know' responses on closed-ended items at about 3%. Thus one can also choose to replace Don't Know responses with .03.
+1. For current purposes, we assume missing responses to indicate ignorance. Thus functions internally code missing responses as 0.
+2. If the items offer an option to mark `Don't know`, code all `Don't Know` responses as 'd'.
 
 ```{r stndcor}
 library(guess)
@@ -81,8 +77,8 @@ pst_test_var <- c(1,0,1,1,0,1,1)
 transmat(pre_test_var, pst_test_var)
 
 # With Don't Know
-pre_test_var <- c(1,0,0,1,NA,NA,0,1,0)
-pst_test_var <- c(1,0,1,NA,1,0,1,1,NA)
+pre_test_var <- c(1,0,NA,1,"d","d",0,1,0)
+pst_test_var <- c(1,0,1,"d",1,0,1,1,"d")
 transmat(pre_test_var, pst_test_var)
 
 ```
