@@ -4,14 +4,14 @@
 \alias{multi_transmat}
 \title{multi_transmat: transition matrix of all the items}
 \usage{
-multi_transmat(pre_test = NULL, pst_test = NULL, subset = NULL)
+multi_transmat(pre_test = NULL, pst_test = NULL, subgroup = NULL)
 }
 \arguments{
 \item{pre_test}{Required. data.frame carrying responses to pre-test questions.}
 
 \item{pst_test}{Required. data.frame carrying responses to post-test questions.}
 
-\item{subset}{a dummy vector identifying the subset. Default is NULL.}
+\item{subgroup}{a Boolean vector identifying the subset. Default is NULL.}
 }
 \value{
 matrix with rows = total number of items + 1 (last row contains aggregate distribution across items)
@@ -24,7 +24,7 @@ Don't knows must be coded as NA. Function handles items without don't know respo
 The function is used internally. It calls transmat.
 }
 \examples{
-pre_test <- data.frame(pre_item1=c(1,0,0,1,0), pre_item2=c(1,NA,0,1,0));
+pre_test <- data.frame(pre_item1=c(1,0,0,1,0), pre_item2=c(1,NA,0,1,0))
 pst_test <- data.frame(pst_item1=pre_test[,1] + c(0,1,1,0,0),
 						  pst_item2 = pre_test[,2] + c(0,1,0,0,1))
 multi_transmat(pre_test, pst_test)

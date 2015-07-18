@@ -7,15 +7,16 @@
 nona(vec = NULL)
 }
 \arguments{
-\item{vec}{Required. Numeric vector.}
+\item{vec}{Required. Character or Numeric vector.}
 }
 \value{
-Numeric vector
+Character vector.
 }
 \description{
 Converts NAs to 0s
 }
 \examples{
-x <- c(NA, 1, 2); nona(x)
+x <- c(NA, 1, 0); nona(x)
+x <- c(NA, "dk", 0); nona(x)
 }
 

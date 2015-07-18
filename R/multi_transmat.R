@@ -6,40 +6,54 @@
 #' The function is used internally. It calls transmat.
 #' @param pre_test Required. data.frame carrying responses to pre-test questions.
 #' @param pst_test Required. data.frame carrying responses to post-test questions.
-#' @param subset a dummy vector identifying the subset. Default is NULL.
+#' @param subgroup a Boolean vector identifying the subset. Default is NULL.
 #' @return matrix with rows = total number of items + 1 (last row contains aggregate distribution across items)
 #' number of columns = 4 when no don't know, and 9 when there is a don't know option
 #' @export
 #' @examples
-#' pre_test <- data.frame(pre_item1=c(1,0,0,1,0), pre_item2=c(1,NA,0,1,0)); 
+#' pre_test <- data.frame(pre_item1=c(1,0,0,1,0), pre_item2=c(1,NA,0,1,0)) 
 #' pst_test <- data.frame(pst_item1=pre_test[,1] + c(0,1,1,0,0), 
 #'						  pst_item2 = pre_test[,2] + c(0,1,0,0,1))
 #' multi_transmat(pre_test, pst_test)
 
-multi_transmat <- function (pre_test = NULL, pst_test=NULL, subset=NULL) 
+multi_transmat <- function (pre_test = NULL, pst_test=NULL, subgroup=NULL) 
 {
 
+	# Checks
 	if (!is.data.frame(pre_test)) stop("Specify pre_test data.frame.") # pre_test data frame is missing
 	if (!is.data.frame(pst_test)) stop("Specify pst_test data.frame.") # post_test data frame is missing
-
-	test <- data.frame(pre_test, pst_test); 
-	pre  <- names(pre_test)
-	pst  <- names(pst_test)
-	item_df <- test[,interleave(pre, pst)]
+	if(length(pre_test)!=length(pst_test)) stop("Lengths of pre_test and pst_test must be the same.") # If different no. of items
 	
-	two_n_items <- ncol(item_df)	#2*n items
-
-	n_params <- ifelse(sum(is.na(item_df))==0, 4, 9) # Do items have dk or not
-
-	res <- matrix(ncol=n_params, nrow=(two_n_items/2 + 1))
-		
-	j <- 1	
-	for (i in seq(1, two_n_items, 2))
+	# Subset
+	if (!is.null(subgroup))
 	{
-		res[j,] <- transmat(item_df[,i], item_df[,i+1], n_params, subset)
-		j <- j + 1
+		pre_test <- subset(pre_test, subgroup)
+		pst_test <- subset(pst_test, subgroup)
 	}
-	res[j,] <- colSums(res, na.rm=T)
+	
+	# No. of items
+	n_items <- length(pre_test)
+
+	# Initialize results
+	res <- list()
+	
+	# Get transition matrix for each item pair
+	for (i in 1:n_items)
+	{
+		cat("\n Item", i, "\n")
+		res[[i]] <- transmat(pre_test[,i], pst_test[,i])
+	}
+
+	# Prepping results
+	row_names <- paste0("item", 1:n_items) 
+	col_names <- names(res[[1]])
+
+	res       <- matrix(unlist(res), nrow=n_items, byrow=T, dimnames=list(row_names, col_names))
+	res[nrow(res),] <- colSums(res, na.rm=T)
+
+	cat("\n Aggregate \n")
+	prmatrix(res)
+	cat("\n")
+
 	return(invisible(res))
 }
-	

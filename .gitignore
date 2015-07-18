@@ -5,3 +5,4 @@
 Readme.Rmd
 R/dev/
 vignettes/
+.httr-oauth

@@ -2,34 +2,34 @@
 % Please edit documentation in R/transmat.R
 \name{transmat}
 \alias{transmat}
-\title{transmat: Across wave transition matrix}
+\title{transmat: Cross-wave transition matrix}
 \usage{
-transmat(pre_test_var, pst_test_var, subset = NULL)
+transmat(pre_test_var, pst_test_var, subgroup = NULL)
 }
 \arguments{
-\item{pre_test_var}{A vector carrying pre-test scores of a particular item}
+\item{pre_test_var}{Required. A vector carrying pre-test scores of a particular item. Only}
 
-\item{pst_test_var}{A vector carrying post-test scores of a particular item}
+\item{pst_test_var}{Required. A vector carrying post-test scores of a particular item}
 
-\item{subset}{A dummy vector indicating rows of the relevant subset.}
+\item{subgroup}{Optional. A Boolean vector indicating rows of the relevant subset.}
 }
 \value{
 a numeric vector.
-Assume 1 denotes correct answer, 0 incorrect, and d ignorance.
+Assume 1 denotes correct answer, 0 and NA incorrect, and d 'don't know.'
 When there is no don't know option and no missing, the entries are: x00, x10, x01, x11
-When there is a don't know option or missing, the entries of the vector are: x00, x10, xd0, x01, x11, xd1, xd0, x1d, xdd
+When there is a don't know option, the entries of the vector are: x00, x10, xd0, x01, x11, xd1, xd0, x1d, xdd
 }
 \description{
-Cross-wave table of transitions. Converts the table to a vector with a specific order. Used internally.
-Missing values are treated as ignorance. Don't know responses need to be coded as NA.
+Prints Cross-wave transition matrix and returns the vector behind the matrix.
+Missing values are treated as ignorance. Don't know responses need to be coded as 'd'.
 }
 \examples{
-pre_test_var <- c(1,0,0,1,0,1,0);
-pst_test_var <- c(1,0,1,1,0,1,1);
+pre_test_var <- c(1,0,0,1,0,1,0)
+pst_test_var <- c(1,0,1,1,0,1,1)
 transmat(pre_test_var, pst_test_var)
 # With NAs
-pre_test_var <- c(1,0,0,1,NA,NA,0,1,0);
-pst_test_var <- c(1,0,1,NA,1,0,1,1,NA);
+pre_test_var <- c(1,0,0,1,"d","d",0,1,NA)
+pst_test_var <- c(1,NA,1,"d",1,0,1,1,"d")
 transmat(pre_test_var, pst_test_var)
 }
 
