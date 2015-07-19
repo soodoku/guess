@@ -2,7 +2,7 @@
 .Rhistory
 .RData
 .Rproj
-Readme.Rmd
+guessdev.md
 R/dev/
 vignettes/
 .httr-oauth
