@@ -1,3 +1,4 @@
+#' keywords internal
 # Likelihood functions 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
