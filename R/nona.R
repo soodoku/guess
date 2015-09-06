@@ -11,5 +11,5 @@
 nona <- function(vec = NULL)
 {
     vec[is.na(vec)] <- 0 
-    as.character(vec)
+    vec
 }

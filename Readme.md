@@ -65,7 +65,8 @@ colMeans(nona(pst_test) - nona(pre_test))
 ```
 
 ```
-## Error in nona(pst_test) - nona(pre_test): non-numeric argument to binary operator
+## item1 item2 
+##   0.4   0.2
 ```
 
 ```r
