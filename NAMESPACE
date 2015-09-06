@@ -4,10 +4,10 @@ export(fit_dk)
 export(fit_nodk)
 export(guess_stnderr)
 export(guesstimate)
-export(ltmcor)
 export(multi_transmat)
 export(nona)
 export(stndcor)
 export(transmat)
 
+# imports
 importFrom(Rsolnp, solnp)
