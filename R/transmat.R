@@ -40,7 +40,7 @@ transmat <- function(pre_test_var, pst_test_var, subgroup=NULL)
 	res <- c(printres)
 
 	# Print
-	prmatrix(printres)
+	# prmatrix(printres)
 	
 	# Names for the returned vector
 	if (length(res)==4) {

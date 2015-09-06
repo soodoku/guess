@@ -51,9 +51,9 @@ multi_transmat <- function (pre_test = NULL, pst_test=NULL, subgroup=NULL)
 	res       <- matrix(unlist(res), nrow=n_items, byrow=T, dimnames=list(row_names, col_names))
 	res[nrow(res),] <- colSums(res, na.rm=T)
 
-	cat("\n Aggregate \n")
-	prmatrix(res)
-	cat("\n")
+	#cat("\n Aggregate \n")
+	#prmatrix(res)
+	#cat("\n")
 
 	return(invisible(res))
 }
