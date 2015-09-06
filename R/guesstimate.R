@@ -1,6 +1,3 @@
-#' guesstimate
-#'
-
 # Likelihood functions 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -58,31 +55,32 @@ eqn1dk = function(x, g1=NA, data) {
 
 # Estimation
 # ~~~~~~~~~~~~~~~~
+#' guesstimate
 #' Calculate item level and aggregate estimates
 #' @param pre_test data.frame carrying pre_test items
 #' @param pst_test data.frame carrying pst_test items
+#' @param subgroup a dummy vector identifying the subset
 #' @return estimates
 #' @export
 
 guesstimate <- function(pre_test = NULL, pst_test=NULL, subgroup=NULL) {
 	
 	# get transition matrix
-	df 			<- multi_transmat(pre_test, pst_test)
+	df 			<- multi_transmat(pre_test, pst_test, subgroup)
 	
 	# Initialize results mat
 	nitems	<- nrow(df)
 	nparams <- ifelse(ncol(df)==4, 4, 8)
 	est.opt <- matrix(ncol=nitems, nrow=nparams)
 	
-
 	# calculating parameter estimates
 	if (nparams == 4) {
 		for (i in 1:nitems) {
-			est.opt[,i]	 <- tryCatch(Rsolnp::solnp(c(.3,.1,.1,.25), guess_lik, eqfun = eqn1, eqB = c(1), LB = rep(0,4), UB = rep(1,4), data=df[i,])[[1]], error=function(e) NULL)
+			est.opt[,i]	 <- tryCatch(solnp(c(.3,.1,.1,.25), guess_lik, eqfun = eqn1, eqB = c(1), LB = rep(0,4), UB = rep(1,4), data=df[i,])[[1]], error=function(e) NULL)
 		}
 	} else {
 		for (i in 1:nitems) {
-			est.opt[,i]	 <- tryCatch(Rsonlp::solnp(c(.3,.1,.2,.05,.1,.1,.05,.25), guessdk, eqfun = eqn1dk, eqB = c(1), LB = rep(0,8), UB = rep(1,8), data=df[i,])[[1]], error=function(e) rep(NA,8))
+			est.opt[,i]	 <- tryCatch(solnp(c(.3,.1,.2,.05,.1,.1,.05,.25), guessdk, eqfun = eqn1dk, eqB = c(1), LB = rep(0,8), UB = rep(1,8), data=df[i,])[[1]], error=function(e) rep(NA,8))
 		}
 	}
 

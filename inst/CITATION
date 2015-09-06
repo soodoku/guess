@@ -4,12 +4,12 @@ year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", meta$Date, perl = TRUE)
 vers <- paste("R package version", meta$Version)
  
 citEntry(entry="Manual",
-		  title = "guess: Estimates of Learning Adjusted for Guessing.",
-		  author = personList(as.person("Gaurav SOod")),
+		  title = "guess: Guessing Adjusted Estimates of Learning.",
+		  author = personList(as.person("Gaurav Sood")),
 		  year = year,
 		  note = vers,
 		  textVersion =
 		  paste("Gaurav Sood (",
 				year,
-				"). guess: Estimates of Learning Adjusted for Guessing. ",
+				"). guess: Guessing Adjusted Estimates of Learning. ",
 				vers, ".", sep=""))

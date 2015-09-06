@@ -9,3 +9,5 @@ export(multi_transmat)
 export(nona)
 export(stndcor)
 export(transmat)
+
+importFrom(Rsolnp, solnp)

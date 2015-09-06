@@ -1,16 +1,18 @@
 #' fit_nodk
 #'
 #' fit for data without dk
-#' @param g 
+#' @param g 		estimates of \eqn{\gamma}
 #' @param est.param estimated parameters
-#' @param data 
-#' @return interleaved vector
+#' @param pre_test data.frame carrying pre_test items
+#' @param pst_test data.frame carrying pst_test items
+#' @return fit statistics
 #' @export
 #' @examples
-#' \dontrun{fit_nodk()}
+#' \dontrun{fit_nodk(g, est.param, data)}
 
-fit_nodk <- function(g, est.param, data) {
+fit_nodk <- function(pre_test, pst_test, g, est.param) {
 
+	data    <- multi_transmat(pre_test, pst_test)
 	expec	<- matrix(ncol=nrow(data), nrow=4)
 	fit		<- matrix(ncol=nrow(data), nrow=2)
 			

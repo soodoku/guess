@@ -4,22 +4,24 @@
 \alias{fit_nodk}
 \title{fit_nodk}
 \usage{
-fit_nodk(g, est.param, data)
+fit_nodk(pre_test, pst_test, g, est.param)
 }
 \arguments{
-\item{g}{}
+\item{pre_test}{data.frame carrying pre_test items}
+
+\item{pst_test}{data.frame carrying pst_test items}
+
+\item{g}{estimates of \eqn{\gamma}}
 
 \item{est.param}{estimated parameters}
-
-\item{data}{}
 }
 \value{
-interleaved vector
+fit statistics
 }
 \description{
 fit for data without dk
 }
 \examples{
-\dontrun{fit_nodk()}
+\dontrun{fit_nodk(g, est.param, data)}
 }
 

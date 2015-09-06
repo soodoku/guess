@@ -8,9 +8,6 @@ URL: http://github.com/soodoku/guess
 BugReports: http://github.com/soodoku/guess/issues
 Depends: 
 	R (>= 3.2.1)
-Imports: 
-	Rsolnp,
-	knitr
+Imports: Rsolnp
 License: GPL (>= 3)
 LazyData: true
-VignetteBuilder: knitr

@@ -2,7 +2,8 @@
 % Please edit documentation in R/guesstimate.R
 \name{guesstimate}
 \alias{guesstimate}
-\title{Calculate item level and aggregate estimates}
+\title{guesstimate
+Calculate item level and aggregate estimates}
 \usage{
 guesstimate(pre_test = NULL, pst_test = NULL, subgroup = NULL)
 }
@@ -10,11 +11,14 @@ guesstimate(pre_test = NULL, pst_test = NULL, subgroup = NULL)
 \item{pre_test}{data.frame carrying pre_test items}
 
 \item{pst_test}{data.frame carrying pst_test items}
+
+\item{subgroup}{a dummy vector identifying the subset}
 }
 \value{
 estimates
 }
 \description{
+guesstimate
 Calculate item level and aggregate estimates
 }
 

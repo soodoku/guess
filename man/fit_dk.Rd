@@ -4,24 +4,24 @@
 \alias{fit_dk}
 \title{fit_dk}
 \usage{
-fit_dk(g, est.param, data, nchisims = NULL)
+fit_dk(pre_test, pst_test, g, est.param)
 }
 \arguments{
-\item{g}{}
+\item{pre_test}{data.frame carrying pre_test items}
 
-\item{est.param}{}
+\item{pst_test}{data.frame carrying pst_test items}
 
-\item{data}{}
+\item{g}{estimates of \eqn{\gamma}}
 
-\item{nchisims}{no. of chisq sims}
+\item{est.param}{estimated parameters}
 }
 \value{
-interleaved vector
+fit statistics
 }
 \description{
 Calculate fit statistics for data with dk
 }
 \examples{
-\dontrun{fit_dk()}
+\dontrun{fit_dk(pre_test, pst_test, )}
 }
 
