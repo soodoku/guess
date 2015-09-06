@@ -86,7 +86,8 @@ transmat(pre_test_var, pst_test_var)
 #### Estimates from the Latent Class Model
 
 ```{r guesstimate}
-
+res <- guesstimate(pre_test, pst_test, lucky)
+round(res, 2)
 ```
 
 #### Standard Errors
