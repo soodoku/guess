@@ -1,4 +1,4 @@
-### guess: Estimates of Learning Adjusted for Guessing
+### guess: Adjust Estimates of Learning for Guessing
 
 [![GPL-3.0](http://img.shields.io/:license-gpl-blue.svg)](http://opensource.org/licenses/GPL-3.0)
 
@@ -55,18 +55,6 @@ To adjust estimates of learning for standard correction of guessing, use `stndco
 
 ```r
 library(guess)
-```
-
-```
-## 
-## Attaching package: 'guess'
-## 
-## The following objects are masked _by_ '.GlobalEnv':
-## 
-##     multi_transmat, transmat
-```
-
-```r
 pre_test <- data.frame(item1=c(1,0,0,1,0), item2=c(1,NA,0,1,0)) 
 pst_test <-  pre_test + cbind(c(0,1,1,0,0), c(0,1,0,0,1))
 lucky <- rep(.25, 2)

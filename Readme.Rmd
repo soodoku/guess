@@ -1,4 +1,4 @@
-### guess: Estimates of Learning Adjusted for Guessing
+### guess: Adjust Estimates of Learning for Guessing
 
 [![GPL-3.0](http://img.shields.io/:license-gpl-blue.svg)](http://opensource.org/licenses/GPL-3.0)
 
