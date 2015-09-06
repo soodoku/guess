@@ -5,14 +5,10 @@
 \title{guesstimate
 Calculate item level and aggregate estimates}
 \usage{
-guesstimate(pre_test = NULL, pst_test = NULL, subgroup = NULL)
+guesstimate(df)
 }
 \arguments{
-\item{pre_test}{data.frame carrying pre_test items}
-
-\item{pst_test}{data.frame carrying pst_test items}
-
-\item{subgroup}{a dummy vector identifying the subset}
+\item{df}{data.frame returned from multi_transmat}
 }
 \value{
 estimates

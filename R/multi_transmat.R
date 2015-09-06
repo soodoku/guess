@@ -40,7 +40,7 @@ multi_transmat <- function (pre_test = NULL, pst_test=NULL, subgroup=NULL)
 	# Get transition matrix for each item pair
 	for (i in 1:n_items)
 	{
-		cat("\n Item", i, "\n")
+		# cat("\n Item", i, "\n")
 		res[[i]] <- transmat(pre_test[,i], pst_test[,i])
 	}
 

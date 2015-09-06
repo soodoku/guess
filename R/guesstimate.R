@@ -58,17 +58,12 @@ eqn1dk = function(x, g1=NA, data) {
 # ~~~~~~~~~~~~~~~~
 #' guesstimate
 #' Calculate item level and aggregate estimates
-#' @param pre_test data.frame carrying pre_test items
-#' @param pst_test data.frame carrying pst_test items
-#' @param subgroup a dummy vector identifying the subset
+#' @param df   data.frame returned from multi_transmat
 #' @return estimates
 #' @export
 
-guesstimate <- function(pre_test = NULL, pst_test=NULL, subgroup=NULL) {
-	
-	# get transition matrix
-	df 			<- multi_transmat(pre_test, pst_test, subgroup)
-	
+guesstimate <- function(df) {
+		
 	# Initialize results mat
 	nitems	<- nrow(df)
 	nparams <- ifelse(ncol(df)==4, 4, 8)
