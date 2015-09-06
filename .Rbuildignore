@@ -4,3 +4,4 @@
 ^.*\.Rmd$
 ^.*\.md$
 ^\.httr-oauth$
+.travis.yml
