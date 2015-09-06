@@ -94,10 +94,7 @@ nitems <- length(alldat)/400
 t1 <- paste0("guess.t1", 1:nitems)
 t2 <- paste0("guess.t2", 1:nitems)
 
-# lucky
-lucky <- rep(.25, (nitems+1))	
-
-res <- guesstimate(alldat[,t1], alldat[,t2], lucky)
+res <- guesstimate(alldat[,t1], alldat[,t2])
 
 round(res[,1:4], 2)
 ```
@@ -111,7 +108,7 @@ round(res[,1:4], 2)
 #### Fit
 
 ```{r fit_lca}
-fit			<- fit_nodk(res[4,], res[1:3,], multi_transmat(alldat[,t1], alldat[,t2]), 100) 
+fit			<- fit_nodk(res[4,], res[1:3,], multi_transmat(alldat[,t1], alldat[,t2])) 
 
 print(fit[,1:4])
 

@@ -11,5 +11,5 @@ alldat
 \description{
 Simulate Pre- and Post-Process Responses to Knowledge Questions without Don't Know
 }
-\keyword{datasets}
+\keyword{data}
 

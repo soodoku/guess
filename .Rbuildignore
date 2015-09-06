@@ -5,3 +5,5 @@
 ^.*\.md$
 ^\.httr-oauth$
 .travis.yml
+vignettes/Overview of Guess.Rmd
+R/guess_stnderr.R

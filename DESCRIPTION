@@ -1,15 +1,16 @@
 Package: guess
 Title: Implements Latent Class Method to Adjust Estimates of Learning for Guessing
 Version: 0.1
-Authors@R: person("Gaurav", "Sood", email = "gsood07@gmail.com", role = c("aut", "cre"))
+Author: Gaurav Sood 
 Maintainer: Gaurav Sood <gsood07@gmail.com>
 Description: Implements Latent Class Method to Adjust Estimates of Learning for Guessing. 
 URL: http://github.com/soodoku/guess
 BugReports: http://github.com/soodoku/guess/issues
 Depends: 
-	R (>= 3.2.1),
+	R (>= 3.2.1)
+Imports: 
 	Rsolnp,
-	ltm
+	knitr
 License: GPL (>= 3)
 LazyData: true
-Imports: Rsolnp, ltm
+VignetteBuilder: knitr

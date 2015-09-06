@@ -1,12 +1,5 @@
 #' guesstimate
 #'
-#' function to calculate item level and aggregate estimates
-#' @param x
-#' @param lucky
-#' @return interleaved vector
-#' @export
-#' @examples
-#' guesstimate
 
 # Likelihood functions 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -65,7 +58,13 @@ eqn1dk = function(x, g1=NA, data) {
 
 # Estimation
 # ~~~~~~~~~~~~~~~~
-guesstimate <- function(pre_test = NULL, pst_test=NULL, subgroup=NULL, lucky = NULL) {
+#' Calculate item level and aggregate estimates
+#' @param pre_test data.frame carrying pre_test items
+#' @param pst_test data.frame carrying pst_test items
+#' @return estimates
+#' @export
+
+guesstimate <- function(pre_test = NULL, pst_test=NULL, subgroup=NULL) {
 	
 	# get transition matrix
 	df 			<- multi_transmat(pre_test, pst_test)
@@ -83,16 +82,16 @@ guesstimate <- function(pre_test = NULL, pst_test=NULL, subgroup=NULL, lucky = N
 		}
 	} else {
 		for (i in 1:nitems) {
-			est.opt[,i]			<- tryCatch(solnp(c(.3,.1,.2,.05,.1,.1,.05,.25), guessdk, eqfun = eqn1dk, eqB = c(1), LB = rep(0,8), UB = rep(1,8), data=df[i,])[[1]], error=function(e) rep(NA,8))
+			est.opt[,i]	 <- tryCatch(Rsonlp::solnp(c(.3,.1,.2,.05,.1,.1,.05,.25), guessdk, eqfun = eqn1dk, eqB = c(1), LB = rep(0,8), UB = rep(1,8), data=df[i,])[[1]], error=function(e) rep(NA,8))
 		}
 	}
 
 	# Assign row names
-	if (nrow(est.opt)==8){
+	if (nrow(est.opt) == 8){
 			row.names(est.opt) 	<- c("lgg", "lgk", "lgc", "lkk", "lcg", "lck", "lcc", "gamma")
 	} else {
 		row.names(est.opt) 		<- c("lgg", "lgk",  "lkk", "gamma")
 	}
 
-	est.opt
+	return(invisible(est.opt))
 }

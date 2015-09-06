@@ -1,16 +1,15 @@
 #' fit_nodk
 #'
 #' fit for data without dk
-#' @param g
-#' @param est.param
-#' @param data
-#' @param nchisims no. of chisq sims 
+#' @param g 
+#' @param est.param estimated parameters
+#' @param data 
 #' @return interleaved vector
 #' @export
 #' @examples
-#' fit_nodk
+#' \dontrun{fit_nodk()}
 
-fit_nodk <- function(g, est.param, data, nchisims) {
+fit_nodk <- function(g, est.param, data) {
 
 	expec	<- matrix(ncol=nrow(data), nrow=4)
 	fit		<- matrix(ncol=nrow(data), nrow=2)
