@@ -137,9 +137,9 @@ nitems <- length(alldat)/400
 t1 <- paste0("guess.t1", 1:nitems)
 t2 <- paste0("guess.t2", 1:nitems)
 
-transmat <- multi_transmat(alldat[,t1], alldat[,t2])
+transmatrix <- multi_transmat(alldat[,t1], alldat[,t2])
 
-res <- guesstimate(transmat)
+res <- guesstimate(transmatrix)
 ```
 
 ```
@@ -180,26 +180,60 @@ res <- guesstimate(transmat)
 ## Iter: 2 fn: 178.7014	 Pars:  0.05694 0.03365 0.90941 0.22727
 ## solnp--> Completed in 2 iterations
 ## 
+## Iter: 1 fn: 179.6872	 Pars:  0.05408 0.03328 0.91264 0.03845
+## Iter: 2 fn: 179.6872	 Pars:  0.05408 0.03328 0.91264 0.03846
+## solnp--> Completed in 2 iterations
+## 
 ## Iter: 1 fn: 1415.6458	 Pars:  0.04587 0.02159 0.93254 0.25882
 ## Iter: 2 fn: 1415.6458	 Pars:  0.04587 0.02159 0.93254 0.25882
 ## solnp--> Completed in 2 iterations
 ```
 
 ```r
-round(res[,1:4], 2)
+round(res$param.lca[,1:4], 3)
 ```
 
 ```
-##       [,1] [,2] [,3] [,4]
-## lgg   0.08 0.05 0.04 0.04
-## lgk   0.00 0.02 0.02 0.03
-## lkk   0.92 0.93 0.94 0.93
-## gamma 0.54 0.20 0.50 0.67
+##        [,1] [,2]  [,3]  [,4]
+## lgg   0.077 0.05 0.040 0.036
+## lgk   0.000 0.02 0.016 0.030
+## lkk   0.923 0.93 0.944 0.934
+## gamma 0.543 0.20 0.500 0.667
+```
+
+```r
+round(res$est.learning[1:4], 3)
+```
+
+```
+## [1] 0.000 0.020 0.016 0.030
 ```
 
 #### Standard Errors
 
 
+```r
+guess_stnderr(pre_test, pst_test, 10)
+```
+
+```
+## 
+## Iter: 1 fn: 5.2746	 Pars:  0.199999982217 0.400000011406 0.400000006085 0.000000009794
+## Iter: 2 fn: 5.2746	 Pars:  0.199999981507 0.400000011320 0.400000007173 0.000000005512
+## solnp--> Completed in 2 iterations
+## 
+## Iter: 1 fn: 5.2746	 Pars:  0.40000002818 0.19999997092 0.40000000061 0.00000004602
+## Iter: 2 fn: 5.2746	 Pars:  0.40000002116 0.19999997435 0.40000000449 0.00000002864
+## solnp--> Completed in 2 iterations
+## 
+## Iter: 1 fn: 10.8890	 Pars:  0.3000000156 0.2999999950 0.3999999891 0.0000000674
+## Iter: 2 fn: 10.8890	 Pars:  0.30000000864 0.29999999496 0.39999999640 0.00000004436
+## solnp--> Completed in 2 iterations
+```
+
+```
+## Error in names(res) <- c("x00", "x10", "xd0", "x01", "x11", "xd1", "xd0", : 'names' attribute [9] must be the same length as the vector [2]
+```
 
 #### Fit
 
@@ -209,7 +243,7 @@ fit			<- fit_nodk(res[4,], res[1:3,], transmat)
 ```
 
 ```
-## Error in multi_transmat(pre_test, pst_test): Specify pre_test data.frame.
+## Error in res[4, ]: incorrect number of dimensions
 ```
 
 ```r
