@@ -673,7 +673,7 @@ guess_stnderr(alldat[,t1], alldat[,t2], 10)
 ```
 
 ```
-## Error in `[<-`(`*tmp*`, 2, , value = structure(c(NA_real_, NA_real_, NA_real_, : subscript out of bounds
+## Error in `[<-`(`*tmp*`, 2, , value = structure(c(0.00847059725396446, : subscript out of bounds
 ```
 
 #### Fit

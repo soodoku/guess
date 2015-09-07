@@ -12,7 +12,7 @@
 #' pre_test <- data.frame(pre_item1=c(1,0,0,1,0), pre_item2=c(1,NA,0,1,0)) 
 #' pst_test <- data.frame(pst_item1=pre_test[,1] + c(0,1,1,0,0), 
 #'						  pst_item2 = pre_test[,2] + c(0,1,0,0,1))
-#' \dontrun{guess_stnderr(pre_test, pst_test, 100, overall=T)}
+#' \dontrun{guess_stnderr(pre_test, pst_test, 100, nsamps=10, seed = 31415)}
 
 guess_stnderr <- function(pre_test, pst_test, nsamps=100, seed = 31415) 
 {
@@ -46,7 +46,7 @@ guess_stnderr <- function(pre_test, pst_test, nsamps=100, seed = 31415)
 	for(i in 1:length(resamples)) {
 		transmatrix_i           <- multi_transmat(resamples[[i]][,1:nitems], resamples[[i]][,(nitems+1):(2*nitems)])
 		resamps.results[[i]] 	<- guesstimate(transmatrix_i)
-		#resamps.lca.eff[i,] 	<- resamps.results[[i]]$est.learning
+		resamps.lca.eff[i,] 	<- resamps.results[[i]]$est.learning
 		resamps.agg[i,] 		<- transmatrix_i[nitems,]
 
 	    for(j in 1:nitems) {
@@ -55,8 +55,8 @@ guess_stnderr <- function(pre_test, pst_test, nsamps=100, seed = 31415)
 	}
 			
 	# Now getting standard error and means of different effects
-	stnderrs.effects[2,]	<- sapply(as.data.frame(resamps.lca.eff), sd, na.rm=T)			
-	avg.effects[2,]			<-	sapply(as.data.frame(resamps.lca.eff), mean, na.rm=T)
+	stnderrs.effects[1,]	<- sapply(as.data.frame(resamps.lca.eff), sd, na.rm=T)			
+	avg.effects[1,]			<-	sapply(as.data.frame(resamps.lca.eff), mean, na.rm=T)
 				
 	for (j in 1:nitems) {
 		stnderrs.lca.params[,j]	<- sapply(as.data.frame(resamps.lca.params[[j]]), sd, na.rm=T)						

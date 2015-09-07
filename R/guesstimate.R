@@ -70,7 +70,7 @@ guesstimate <- function(transmat=NULL) {
 	est.opt <- matrix(ncol=nitems, nrow=nparams)
 	
 	# effects
-	effects	<- matrix(ncol=nitems+1, nrow=1)
+	effects	<- matrix(ncol=nitems, nrow=1)
 
 	# calculating parameter estimates
 	if (nparams == 4) {
@@ -87,9 +87,6 @@ guesstimate <- function(transmat=NULL) {
 		
 		effects[,1:nitems] 	<- est.opt[2,] + est.opt[6,]
 	}
-
-	# Agg. Effect
-	effects[,(nitems+1)]  <- mean(effects[,1:(nitems-1)])
 	
 	# Assign row names
 	if (nrow(est.opt) == 8){
