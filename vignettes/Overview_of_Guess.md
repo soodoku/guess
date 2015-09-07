@@ -678,17 +678,13 @@ guess_stnderr(alldat[,t1], alldat[,t2], 10)
 
 
 ```r
-fit			<- fit_nodk(res[4,], res[1:3,], transmat) 
-```
+fit <- fit_nodk(alldat[,t1], alldat[,t2], res$param.lca[4,], res$param.lca[1:3,])
 
-```
-## Error in res[4, ]: incorrect number of dimensions
-```
-
-```r
 print(fit[,1:4])
 ```
 
 ```
-## Error in print(fit[, 1:4]): object 'fit' not found
+##           [,1]         [,2]      [,3]     [,4]
+## [1,] 2.5791029 5.136378e+01 3.8689664 0.636025
+## [2,] 0.4611649 4.092471e-11 0.2759655 0.888138
 ```
