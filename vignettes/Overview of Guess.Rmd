@@ -98,7 +98,10 @@ transmat <- multi_transmat(alldat[,t1], alldat[,t2])
 
 res <- guesstimate(transmat)
 
-round(res[,1:4], 2)
+round(res$param.lca[,1:4], 3)
+
+round(res$est.learning[1:4], 3)
+
 ```
 
 #### Standard Errors

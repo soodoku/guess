@@ -58,34 +58,47 @@ eqn1dk = function(x, g1=NA, data) {
 # ~~~~~~~~~~~~~~~~
 #' guesstimate
 #' Calculate item level and aggregate estimates
-#' @param df   data.frame returned from multi_transmat
+#' @param transmat  data.frame returned from multi_transmat
 #' @return estimates
 #' @export
 
-guesstimate <- function(df) {
+guesstimate <- function(transmat=NULL) {
 		
 	# Initialize results mat
-	nitems	<- nrow(df)
-	nparams <- ifelse(ncol(df)==4, 4, 8)
+	nitems	<- nrow(transmat)
+	nparams <- ifelse(ncol(transmat)==4, 4, 8)
 	est.opt <- matrix(ncol=nitems, nrow=nparams)
 	
+	# effects
+	effects	<- matrix(ncol=nitems+1, nrow=1)
+
 	# calculating parameter estimates
 	if (nparams == 4) {
 		for (i in 1:nitems) {
-			est.opt[,i]	 <- tryCatch(solnp(c(.3,.1,.1,.25), guess_lik, eqfun = eqn1, eqB = c(1), LB = rep(0,4), UB = rep(1,4), data=df[i,])[[1]], error=function(e) NULL)
+			est.opt[,i]	 <- tryCatch(solnp(c(.3,.1,.1,.25), guess_lik, eqfun = eqn1, eqB = c(1), LB = rep(0,4), UB = rep(1,4), data=transmat[i,])[[1]], error=function(e) NULL)
 		}
+
+		effects[,1:nitems] <- est.opt[2,]
+
 	} else {
 		for (i in 1:nitems) {
-			est.opt[,i]	 <- tryCatch(solnp(c(.3,.1,.2,.05,.1,.1,.05,.25), guessdk, eqfun = eqn1dk, eqB = c(1), LB = rep(0,8), UB = rep(1,8), data=df[i,])[[1]], error=function(e) rep(NA,8))
+			est.opt[,i]	 <- tryCatch(solnp(c(.3,.1,.2,.05,.1,.1,.05,.25), guessdk, eqfun = eqn1dk, eqB = c(1), LB = rep(0,8), UB = rep(1,8), data=transmat[i,])[[1]], error=function(e) rep(NA,8))
 		}
+		
+		effects[,1:nitems] 	<- est.opt[2,] + est.opt[6,]
 	}
 
+	# Agg. Effect
+	effects[,(nitems+1)]  <- mean(effects[,1:(nitems-1)])
+	
 	# Assign row names
 	if (nrow(est.opt) == 8){
-			row.names(est.opt) 	<- c("lgg", "lgk", "lgc", "lkk", "lcg", "lck", "lcc", "gamma")
+		row.names(est.opt) 	<- c("lgg", "lgk", "lgc", "lkk", "lcg", "lck", "lcc", "gamma")
 	} else {
-		row.names(est.opt) 		<- c("lgg", "lgk",  "lkk", "gamma")
+		row.names(est.opt) 	<- c("lgg", "lgk",  "lkk", "gamma")
 	}
 
-	return(invisible(est.opt))
+	res <- list(param.lca=est.opt, est.learning=effects)
+
+	return(invisible(res))
 }
