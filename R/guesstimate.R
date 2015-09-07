@@ -1,4 +1,5 @@
 #' guesstimate
+#' @importFrom Rsolnp solnp
 #' @title Calculate item level and aggregate learning
 #' @param transmat  transition matrix returned from \code{\link{multi_transmat}}
 #' @return list with two items: parameter estimates and estimates of learning
@@ -24,7 +25,7 @@ guesstimate <- function(transmat=NULL) {
 
 	} else {
 		for (i in 1:nitems) {
-			est.opt[,i]	 <- tryCatch(solnp(c(.3,.1,.2,.05,.1,.1,.05,.25), guessdk, eqfun = eqn1dk, eqB = c(1), LB = rep(0,8), UB = rep(1,8), data=transmat[i,])[[1]], error=function(e) rep(NA,8))
+			est.opt[,i]	 <- tryCatch(solnp(c(.3,.1,.2,.05,.1,.1,.05,.25), guessdk_lik, eqfun = eqn1dk, eqB = c(1), LB = rep(0,8), UB = rep(1,8), data=transmat[i,])[[1]], error=function(e) rep(NA,8))
 		}
 		
 		effects[,1:nitems] 	<- est.opt[2,] + est.opt[6,]
