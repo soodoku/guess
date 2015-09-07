@@ -13,6 +13,6 @@ guesstimate(transmat = NULL)
 list with two items: parameter estimates and estimates of learning
 }
 \description{
-Calculate item level and aggregate learning
+guesstimate
 }
 
