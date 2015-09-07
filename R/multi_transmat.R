@@ -49,7 +49,8 @@ multi_transmat <- function (pre_test = NULL, pst_test=NULL, subgroup=NULL)
 	col_names <- names(res[[1]])
 
 	res       <- matrix(unlist(res), nrow=n_items, byrow=T, dimnames=list(row_names, col_names))
-	res[nrow(res),] <- colSums(res, na.rm=T)
+	res       <- rbind(res, colSums(res, na.rm=T))
+	rownames(res)[nrow(res)] <- "agg"
 
 	#cat("\n Aggregate \n")
 	#prmatrix(res)

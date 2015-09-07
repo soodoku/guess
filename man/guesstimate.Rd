@@ -5,10 +5,10 @@
 \title{guesstimate
 Calculate item level and aggregate estimates}
 \usage{
-guesstimate(df)
+guesstimate(transmat = NULL)
 }
 \arguments{
-\item{df}{data.frame returned from multi_transmat}
+\item{transmat}{data.frame returned from multi_transmat}
 }
 \value{
 estimates

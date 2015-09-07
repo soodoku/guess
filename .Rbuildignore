@@ -5,4 +5,3 @@
 ^.*\.md$
 ^\.httr-oauth$
 .travis.yml
-vignettes/Overview of Guess.Rmd
