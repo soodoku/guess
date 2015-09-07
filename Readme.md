@@ -22,7 +22,7 @@ devtools::install_github("soodoku/guess")
 
 ### Usage
 
-To learn about how to use the package, see [this vignette](vignettes/Overview of Guess.md).
+To learn about how to use the package, see [this vignette](vignettes/Using_Guess.md).
 
 ### License
 Scripts are released under [GNU V3](http://www.gnu.org/licenses/gpl-3.0.en.html).
