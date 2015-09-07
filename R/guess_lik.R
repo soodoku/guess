@@ -6,7 +6,6 @@
 #' @param g1   guess
 #' @param data transition matrix
 
-# Data w/ No DK
 guess_lik <- function(x, g1=x[4], data) 
 {
 	lgg <- x[1]
