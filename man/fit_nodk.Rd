@@ -2,7 +2,7 @@
 % Please edit documentation in R/fit_nodk.R
 \name{fit_nodk}
 \alias{fit_nodk}
-\title{fit_nodk}
+\title{Goodness of fit statistics for data without don't know}
 \usage{
 fit_nodk(pre_test, pst_test, g, est.param)
 }
@@ -11,17 +11,20 @@ fit_nodk(pre_test, pst_test, g, est.param)
 
 \item{pst_test}{data.frame carrying pst_test items}
 
-\item{g}{estimates of \eqn{\gamma}}
+\item{g}{estimates of \eqn{\gamma} produced from \code{\link{guesstimate}}}
 
-\item{est.param}{estimated parameters}
+\item{est.param}{estimated parameters produced from \code{\link{guesstimate}}}
 }
 \value{
-fit statistics
+matrix with two rows: top row carrying chi-square value, and bottom row probability of observing that value
 }
 \description{
-fit for data without dk
+For data without Don't Know, chi-square goodness of fit between true and model based multivariate distribution
+}
+\details{
+fit_nodk
 }
 \examples{
-\dontrun{fit_nodk(g, est.param, data)}
+\dontrun{fit_nodk(pre_test, pst_test, g, est.param)}
 }
 

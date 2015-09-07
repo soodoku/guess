@@ -9,5 +9,6 @@ export(nona)
 export(stndcor)
 export(transmat)
 
+
 # imports
 importFrom(Rsolnp, solnp)

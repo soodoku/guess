@@ -2,7 +2,7 @@
 % Please edit documentation in R/multi_transmat.R
 \name{multi_transmat}
 \alias{multi_transmat}
-\title{multi_transmat: transition matrix of all the items}
+\title{Creates a transition matrix for each item.}
 \usage{
 multi_transmat(pre_test = NULL, pst_test = NULL, subgroup = NULL)
 }
@@ -18,10 +18,12 @@ matrix with rows = total number of items + 1 (last row contains aggregate distri
 number of columns = 4 when no don't know, and 9 when there is a don't know option
 }
 \description{
-Creates a transition matrix for each item.
 Needs an 'interleaved' dataframe (see interleave function). Pre-test item should be followed by corresponding post-item item etc.
 Don't knows must be coded as NA. Function handles items without don't know responses.
 The function is used internally. It calls transmat.
+}
+\details{
+multi_transmat: transition matrix of all the items
 }
 \examples{
 pre_test <- data.frame(pre_item1=c(1,0,0,1,0), pre_item2=c(1,NA,0,1,0))

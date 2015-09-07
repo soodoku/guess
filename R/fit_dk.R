@@ -1,14 +1,17 @@
-#' fit_dk
+#' fit_nodk
 #'
-#' Calculate fit statistics for data with dk
-#' @param g 		estimates of \eqn{\gamma}
-#' @param est.param estimated parameters
+#' @title Goodness of fit statistics for data with don't know
+#' 
+#' @description For data with Don't Know, chi-square goodness of fit between true and model based multivariate distribution
+#'
 #' @param pre_test data.frame carrying pre_test items
-#' @param pst_test data.frame carrying pst_test items
-#' @return fit statistics
+#' @param pst_test data.frame carrying pst_test items 
+#' @param g 		estimates of \eqn{\gamma} produced from \code{\link{guesstimate}}
+#' @param est.param estimated parameters produced from \code{\link{guesstimate}}
+#' @return matrix with two rows: top row carrying chi-square value, and bottom row probability of observing that value
 #' @export
 #' @examples
-#' \dontrun{fit_dk(pre_test, pst_test, )}
+#' \dontrun{fit_dk(pre_test, pst_test, g, est.param)}
 
 fit_dk <- function(pre_test, pst_test, g, est.param) 
 {

@@ -1,7 +1,7 @@
 #' multi_transmat: transition matrix of all the items
 #'
-#' Creates a transition matrix for each item.
-#' Needs an 'interleaved' dataframe (see interleave function). Pre-test item should be followed by corresponding post-item item etc. 
+#' @title Creates a transition matrix for each item.
+#' @description Needs an 'interleaved' dataframe (see interleave function). Pre-test item should be followed by corresponding post-item item etc. 
 #' Don't knows must be coded as NA. Function handles items without don't know responses.
 #' The function is used internally. It calls transmat.
 #' @param pre_test Required. data.frame carrying responses to pre-test questions.

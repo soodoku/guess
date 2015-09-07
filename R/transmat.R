@@ -1,6 +1,6 @@
 #' transmat: Cross-wave transition matrix
 #'
-#' Prints Cross-wave transition matrix and returns the vector behind the matrix.  
+#' @description Prints Cross-wave transition matrix and returns the vector behind the matrix.  
 #' Missing values are treated as ignorance. Don't know responses need to be coded as 'd'.
 #' @param pre_test_var Required. A vector carrying pre-test scores of a particular item. Only 
 #' @param pst_test_var Required. A vector carrying post-test scores of a particular item
@@ -14,6 +14,7 @@
 #' pre_test_var <- c(1,0,0,1,0,1,0)
 #' pst_test_var <- c(1,0,1,1,0,1,1)
 #' transmat(pre_test_var, pst_test_var)
+#' 
 #' # With NAs
 #' pre_test_var <- c(1,0,0,1,"d","d",0,1,NA)
 #' pst_test_var <- c(1,NA,1,"d",1,0,1,1,"d") 

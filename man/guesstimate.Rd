@@ -2,19 +2,17 @@
 % Please edit documentation in R/guesstimate.R
 \name{guesstimate}
 \alias{guesstimate}
-\title{guesstimate
-Calculate item level and aggregate estimates}
+\title{Calculate item level and aggregate learning}
 \usage{
 guesstimate(transmat = NULL)
 }
 \arguments{
-\item{transmat}{data.frame returned from multi_transmat}
+\item{transmat}{transition matrix returned from \code{\link{multi_transmat}}}
 }
 \value{
-estimates
+list with two items: parameter estimates and estimates of learning
 }
 \description{
-guesstimate
-Calculate item level and aggregate estimates
+Calculate item level and aggregate learning
 }
 

@@ -1,12 +1,12 @@
-#' guess_stnderr: standard error
+#' guess_stnderr
 #'
-#' Bootstrapped standard errors of effect size estimates
+#' @title Bootstrapped standard errors of effect size estimates
+#' 
 #' @param pre_test data.frame carrying pre_test items
 #' @param pst_test data.frame carrying pst_test items
-#' @param nsamps  number of resample
-#' @param seed    random seed
-#' @return matrix with rows = total number of items + 1 (last row contains aggregate distribution across items)
-#' number of columns = 4 when no don't know, and 9 when there is a don't know option
+#' @param nsamps  number of resamples, default is 100
+#' @param seed    random seed, default is 31415
+#' @return  list with standard error of parameters, estimates of learning, standard error of learning by item
 #' @export
 #' @examples
 #' pre_test <- data.frame(pre_item1=c(1,0,0,1,0), pre_item2=c(1,NA,0,1,0)) 

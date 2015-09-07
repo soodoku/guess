@@ -56,10 +56,9 @@ eqn1dk = function(x, g1=NA, data) {
 
 # Estimation
 # ~~~~~~~~~~~~~~~~
-#' guesstimate
-#' Calculate item level and aggregate estimates
-#' @param transmat  data.frame returned from multi_transmat
-#' @return estimates
+#' @title Calculate item level and aggregate learning
+#' @param transmat  transition matrix returned from \code{\link{multi_transmat}}
+#' @return list with two items: parameter estimates and estimates of learning
 #' @export
 
 guesstimate <- function(transmat=NULL) {
