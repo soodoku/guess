@@ -25,5 +25,5 @@ devtools::install_github("soodoku/guess")
 To learn about how to use the package, see [this vignette](vignettes/Using_Guess.md).
 
 ### License
-Scripts are released under [GNU V3](http://www.gnu.org/licenses/gpl-3.0.en.html).
+Scripts are released under [MIT License](https://opensource.org/licenses/MIT).
 

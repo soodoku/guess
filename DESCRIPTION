@@ -9,5 +9,5 @@ BugReports: http://github.com/soodoku/guess/issues
 Depends: 
 	R (>= 3.2.1)
 Imports: Rsolnp
-License: GPL (>= 3)
+License: MIT + file LICENSE
 LazyData: true
