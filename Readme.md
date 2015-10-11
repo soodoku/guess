@@ -1,7 +1,7 @@
 ### guess: Adjust Estimates of Learning for Guessing
 
-[![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 [![Build Status](https://travis-ci.org/soodoku/guess.svg?branch=master)](https://travis-ci.org/soodoku/guess)
+[![Build status](https://ci.appveyor.com/api/projects/status/lxihn9905m74brcl?svg=true)](https://ci.appveyor.com/project/soodoku/guess)
 
 Over informative processes, naive estimator of learning---difference between post and pre process scores---underestimates actual learning. A heuristic account for why the naive estimator is negatively biased is as follows: people know as much or more after exposed to an informative process than before it. And the less people know, the larger the number of items they don't know. And greater the opportunity to guess. 
 
