@@ -11,3 +11,5 @@ Depends:
 Imports: Rsolnp
 License: MIT + file LICENSE
 LazyData: true
+VignetteBuilder: knitr
+Suggests: knitr (>= 1.11)

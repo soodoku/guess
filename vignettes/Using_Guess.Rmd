@@ -1,3 +1,14 @@
+---
+title: "Using guess"
+author: "Gaurav Sood"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Using guess}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
 ### guess: Adjust Estimates of Learning for Guessing
 
 Over informative processes, naive estimator of learning---difference between post and pre process scores---underestimates actual learning. A heuristic account for why the naive estimator is negatively biased is as follows: people know as much or more after exposed to an informative process than before it. And the less people know, the larger the number of items they don't know. And greater the opportunity to guess. 
@@ -34,7 +45,7 @@ The standard correction for guessing assumes that people guess randomly. And tha
 
 To get the current development version from github:
 
-```{r install}
+```{r, eval=FALSE, install}
 # install.packages("devtools")
 library(devtools)
 #devtools::install_github("soodoku/guess")

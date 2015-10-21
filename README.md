@@ -22,7 +22,11 @@ devtools::install_github("soodoku/guess")
 
 ### Usage
 
-To learn about how to use the package, see [this vignette](vignettes/Using_Guess.md).
+To learn about how to use the package, see the vignette:
+```{r}
+# Overview of the package
+vignette("using_guess", package = "guess")
+```
 
 ### License
 Scripts are released under [MIT License](https://opensource.org/licenses/MIT).

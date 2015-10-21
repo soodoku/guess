@@ -4,10 +4,10 @@
 \alias{guesstimate}
 \title{Calculate item level and aggregate learning}
 \usage{
-guesstimate(transmat = NULL)
+guesstimate(transmatrix = NULL)
 }
 \arguments{
-\item{transmat}{transition matrix returned from \code{\link{multi_transmat}}}
+\item{transmatrix}{transition matrix returned from \code{\link{multi_transmat}}}
 }
 \value{
 list with two items: parameter estimates and estimates of learning
