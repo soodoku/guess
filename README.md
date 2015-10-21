@@ -17,7 +17,7 @@ To get the current development version from github:
 ```r
 # install.packages("devtools")
 library(devtools)
-devtools::install_github("soodoku/guess")
+devtools::install_github("soodoku/guess", build_vignettes = TRUE)
 ```
 
 ### Usage
