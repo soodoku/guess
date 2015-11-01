@@ -23,7 +23,7 @@ devtools::install_github("soodoku/guess", build_vignettes = TRUE)
 ### Usage
 
 To learn about how to use the package, see the vignette:
-```{r}
+```r
 # Overview of the package
 vignette("using_guess", package = "guess")
 ```
