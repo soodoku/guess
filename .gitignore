@@ -2,6 +2,4 @@
 .Rhistory
 .RData
 .Rproj
-guessdev.md
-R/dev/
-vignettes/dev/
+dev/
