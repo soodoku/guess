@@ -129,5 +129,4 @@ guess_stnderr(alldat[,t1], alldat[,t2], 10)
 fit <- fit_nodk(alldat[,t1], alldat[,t2], res$param.lca[4,], res$param.lca[1:3,])
 
 print(fit[,1:4])
-
 ```
