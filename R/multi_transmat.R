@@ -7,6 +7,7 @@
 #' @param pre_test Required. data.frame carrying responses to pre-test questions.
 #' @param pst_test Required. data.frame carrying responses to post-test questions.
 #' @param subgroup a Boolean vector identifying the subset. Default is NULL.
+#' @param force9       Optional. There are cases where DK data doesn't have DK. But we need the entire matrix. By default it is FALSE.
 #' @return matrix with rows = total number of items + 1 (last row contains aggregate distribution across items)
 #' number of columns = 4 when no don't know, and 9 when there is a don't know option
 #' @export
@@ -16,7 +17,7 @@
 #'						  pst_item2 = pre_test[,2] + c(0,1,0,0,1))
 #' multi_transmat(pre_test, pst_test)
 
-multi_transmat <- function (pre_test = NULL, pst_test=NULL, subgroup=NULL) 
+multi_transmat <- function (pre_test = NULL, pst_test=NULL, subgroup=NULL, force9=FALSE) 
 {
 
 	# Checks

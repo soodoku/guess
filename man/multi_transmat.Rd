@@ -4,7 +4,8 @@
 \alias{multi_transmat}
 \title{Creates a transition matrix for each item.}
 \usage{
-multi_transmat(pre_test = NULL, pst_test = NULL, subgroup = NULL)
+multi_transmat(pre_test = NULL, pst_test = NULL, subgroup = NULL,
+  force9 = FALSE)
 }
 \arguments{
 \item{pre_test}{Required. data.frame carrying responses to pre-test questions.}
@@ -12,6 +13,8 @@ multi_transmat(pre_test = NULL, pst_test = NULL, subgroup = NULL)
 \item{pst_test}{Required. data.frame carrying responses to post-test questions.}
 
 \item{subgroup}{a Boolean vector identifying the subset. Default is NULL.}
+
+\item{force9}{Optional. There are cases where DK data doesn't have DK. But we need the entire matrix. By default it is FALSE.}
 }
 \value{
 matrix with rows = total number of items + 1 (last row contains aggregate distribution across items)
