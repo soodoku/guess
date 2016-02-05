@@ -5,11 +5,11 @@ vers <- paste("R package version", meta$Version)
  
 citEntry(entry="Manual",
 		  title = "guess: Guessing Adjusted Estimates of Learning.",
-		  author = personList(as.person("Gaurav Sood")),
+		  author = personList(as.person("Gaurav Sood"), as.person("Ken Cor")),
 		  year = year,
 		  note = vers,
 		  textVersion =
 		  paste("Gaurav Sood (",
 				year,
-				"). guess: Guessing Adjusted Estimates of Learning. ",
+				"). guess: Guessing Adjusted Estimates of Learning.",
 				vers, ".", sep=""))
