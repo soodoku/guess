@@ -4,7 +4,8 @@
 \alias{guess_stnderr}
 \title{Bootstrapped standard errors of effect size estimates}
 \usage{
-guess_stnderr(pre_test, pst_test, nsamps = 100, seed = 31415)
+guess_stnderr(pre_test = NULL, pst_test = NULL, nsamps = 100,
+  seed = 31415)
 }
 \arguments{
 \item{pre_test}{data.frame carrying pre_test items}
@@ -25,6 +26,6 @@ guess_stnderr
 pre_test <- data.frame(pre_item1=c(1,0,0,1,0), pre_item2=c(1,NA,0,1,0)) 
 pst_test <- data.frame(pst_item1=pre_test[,1] + c(0,1,1,0,0), 
 					  pst_item2 = pre_test[,2] + c(0,1,0,0,1))
-\dontrun{guess_stnderr(pre_test, pst_test, 100, nsamps=10, seed = 31415)}
+\dontrun{guess_stnderr(pre_test, pst_test, nsamps=10, seed = 31415)}
 }
 

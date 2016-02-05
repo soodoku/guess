@@ -12,9 +12,9 @@
 #' pre_test <- data.frame(pre_item1=c(1,0,0,1,0), pre_item2=c(1,NA,0,1,0)) 
 #' pst_test <- data.frame(pst_item1=pre_test[,1] + c(0,1,1,0,0), 
 #'						  pst_item2 = pre_test[,2] + c(0,1,0,0,1))
-#' \dontrun{guess_stnderr(pre_test, pst_test, 100, nsamps=10, seed = 31415)}
+#' \dontrun{guess_stnderr(pre_test, pst_test, nsamps=10, seed = 31415)}
 
-guess_stnderr <- function(pre_test, pst_test, nsamps=100, seed = 31415) 
+guess_stnderr <- function(pre_test=NULL, pst_test=NULL, nsamps=100, seed = 31415) 
 {
 	
 	# pre_test <- alldat[,t1]; pst_test <-  alldat[,t2]; nsamps=10; seed = 31415
@@ -44,6 +44,7 @@ guess_stnderr <- function(pre_test, pst_test, nsamps=100, seed = 31415)
 
 	# Looping through the samples; estimating based one each
 	for(i in 1:length(resamples)) {
+		print(i)
 		transmatrix_i           <- multi_transmat(resamples[[i]][,1:nitems], resamples[[i]][,(nitems+1):(2*nitems)])
 		resamps.results[[i]] 	<- guesstimate(transmatrix_i)
 		resamps.lca.eff[i,] 	<- resamps.results[[i]]$est.learning
