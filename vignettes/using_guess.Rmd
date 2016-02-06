@@ -97,7 +97,7 @@ print(transmat(pre_test_var, pst_test_var))
 #### Estimates from the Latent Class Model
 
 ```{r guesstimate}
-# load(file.path(system.file(package = "guess"), "data", "alldat.rda"))
+# load(system.file("data/alldat.rda", package = "guess"))
 load("../data/alldat.rda")
 
 # nitems
@@ -115,6 +115,14 @@ round(res$param.lca[,1:4], 3)
 
 round(res$est.learning[1:4], 3)
 
+# Guesstimate with DK
+# load(system.file("data/alldat_dk.rda", package = "guess"))
+transmatrix <- multi_transmat(alldat_dk[,t1], alldat_dk[,t2])
+res <- guesstimate(transmatrix)
+
+round(res$param.lca[,1:4], 3)
+
+round(res$est.learning[1:4], 3)
 ```
 
 #### Standard Errors
