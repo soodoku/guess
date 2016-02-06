@@ -4,5 +4,5 @@
 #' to Knowledge Questions without Don't Know
 #'
 #'
-#' @format A data frame with 500 rows and 4000 variables:
+#' @format A data frame with 1000 rows and 4 variables:
 "params"
