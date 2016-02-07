@@ -16,6 +16,7 @@
 fit_dk <- function(pre_test, pst_test, g, est.param) 
 {
 
+	data    <- multi_transmat(pre_test, pst_test)
 	expec	<- matrix(ncol=nrow(data),nrow=9)
 	fit		<- matrix(ncol=nrow(data),nrow=2)
 			

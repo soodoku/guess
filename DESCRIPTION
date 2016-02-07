@@ -7,7 +7,7 @@ Maintainer: Gaurav Sood <gsood07@gmail.com>
 Description: Adjust Estimates of Learning for Guessing. The package provides 
     standard guessing correction, and a latent class model that leverages
     informative pre-post transitions. For details of the latent class model,
-    see http://gsood.com/research/papers/guess.pdf.
+    see <http://gsood.com/research/papers/guess.pdf>.
 URL: http://github.com/soodoku/guess
 BugReports: http://github.com/soodoku/guess/issues
 Depends:
