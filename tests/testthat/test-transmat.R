@@ -5,7 +5,7 @@ test_that("transmat works correctly", {
 	pst_test_var <- c(1,0,1,1,0,1,1)
 
 	res <- transmat(pre_test_var, pst_test_var)
-	cor_ans <- c(x00=2, x10=0, x01=2, x11=3)
+	cor_ans <- c(x00=2, x01=2, x10=0, x11=3)
 	
 	expect_that(sapply(res, as.numeric), equals(cor_ans))
 })
