@@ -52,7 +52,7 @@ transmat <- function(pre_test_var, pst_test_var, subgroup=NULL, force9=FALSE)
 	res <- c(x00, x10, x01, x11)
 	names(res) <- c("x00", "x10", "x01", "x11")
 
-	if ((xd0 + xd1 + x1d + xdd != 0) & force9) {
+	if ((xd0 + xd1 + x1d + xdd != 0) | force9) {
 
 		res <- c(x00, x10, xd0, x01, x11, xd1, xd0, x1d, xdd)
 		names(res) <- c("x00", "x10", "xd0", "x01", "x11", "xd1", "xd0", "x1d", "xdd")
