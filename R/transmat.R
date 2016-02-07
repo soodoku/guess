@@ -48,7 +48,8 @@ transmat <- function(pre_test_var, pst_test_var, subgroup=NULL, force9=FALSE)
 	xd1     <- sum(pre_pst=="d1") 
 	x1d     <- sum(pre_pst=="1d") 
 	xdd     <- sum(pre_pst=="dd")
-
+	x0d     <- sum(pre_pst=="0d")
+	
 	res <- c(x00, x01, x10, x11)
 	names(res) <- c("x00", "x01", "x10", "x11")
 
