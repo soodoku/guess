@@ -42,7 +42,7 @@ multi_transmat <- function (pre_test = NULL, pst_test=NULL, subgroup=NULL, force
 	for (i in 1:n_items)
 	{
 		# cat("\n Item", i, "\n")
-		res[[i]] <- transmat(pre_test[,i], pst_test[,i])
+		res[[i]] <- transmat(pre_test[,i], pst_test[,i], force9=force9)
 	}
 
 	# Prepping results
