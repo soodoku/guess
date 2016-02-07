@@ -49,8 +49,8 @@ transmat <- function(pre_test_var, pst_test_var, subgroup=NULL, force9=FALSE)
 	x1d     <- sum(pre_pst=="1d") 
 	xdd     <- sum(pre_pst=="dd")
 
-	res <- c(x00, x10, x01, x11)
-	names(res) <- c("x00", "x10", "x01", "x11")
+	res <- c(x00, x01, x10, x11)
+	names(res) <- c("x00", "x01", "x10", "x11")
 
 	if ((xd0 + xd1 + x1d + xdd != 0) | force9) {
 
