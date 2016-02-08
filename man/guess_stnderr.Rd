@@ -5,7 +5,7 @@
 \title{Bootstrapped standard errors of effect size estimates}
 \usage{
 guess_stnderr(pre_test = NULL, pst_test = NULL, nsamps = 100,
-  seed = 31415)
+  seed = 31415, force9 = FALSE)
 }
 \arguments{
 \item{pre_test}{data.frame carrying pre_test items}
@@ -15,6 +15,8 @@ guess_stnderr(pre_test = NULL, pst_test = NULL, nsamps = 100,
 \item{nsamps}{number of resamples, default is 100}
 
 \item{seed}{random seed, default is 31415}
+
+\item{force9}{Optional. There are cases where DK data doesn't have DK. But we need the entire matrix. By default it is FALSE.}
 }
 \value{
 list with standard error of parameters, estimates of learning, standard error of learning by item
