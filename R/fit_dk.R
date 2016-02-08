@@ -31,7 +31,7 @@ fit_dk <- function(pre_test, pst_test, g, est.param)
 		expec[7, i]	<- ((1 - gi)*est.param[5,i])*sum(data[i,])
 		expec[8, i]	<- (gi*est.param[5,i] + est.param[6,i])*sum(data[i,])
 		expec[9, i]	<- est.param[7,i]*sum(data[i,])
-		test 		<- chisq.test(expec[,i], p=data[i,]/sum(data[i,]))
+		test 		<- suppressWarnings(chisq.test(expec[,i], p=data[i,]/sum(data[i,])))
 		fit[1:2,i]	<- round(unlist(test[c(1,3)]),3)
 	}
 

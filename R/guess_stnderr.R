@@ -64,13 +64,7 @@ guess_stnderr <- function(pre_test=NULL, pst_test=NULL, nsamps=100, seed = 31415
 	for (j in 1:nitems) {
 		stnderrs.lca.params[,j]	<- sapply(as.data.frame(resamps.lca.params[[j]]), sd, na.rm=T)						
 	}
-				
-	# Rounding off for print
-	#resamps.agg 			<- round(resamps.agg, 0)
-	#stnderrs.lca.params	<- round(stnderrs.lca.params, 3)
-	#avg.effects			<- round(avg.effects, 3)
-	#stnderrs.effects 		<- round(stnderrs.effects, 3)
-	
+					
 	# Assigning row names
 	row.names(avg.effects) <- row.names(stnderrs.effects) <- c("lca")
 				    			   
