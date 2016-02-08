@@ -129,7 +129,8 @@ round(res$est.learning[1:4], 3)
 #### Standard Errors
 
 ```{r lca_err}
-#guess_stnderr(alldat_dk[,t1], alldat_dk[,t2], 10)
+guess_stnderr(alldat[,t1], alldat[,t2], 10)
+guess_stnderr(alldat_dk[,t1], alldat_dk[,t2], 10)
 ```
 
 #### Fit

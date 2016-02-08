@@ -6,6 +6,7 @@
 #' @param pst_test data.frame carrying pst_test items
 #' @param nsamps  number of resamples, default is 100
 #' @param seed    random seed, default is 31415
+#' @param force9       Optional. There are cases where DK data doesn't have DK. But we need the entire matrix. By default it is FALSE.
 #' @return  list with standard error of parameters, estimates of learning, standard error of learning by item
 #' @export
 #' @examples
@@ -14,17 +15,18 @@
 #'						  pst_item2 = pre_test[,2] + c(0,1,0,0,1))
 #' \dontrun{guess_stnderr(pre_test, pst_test, nsamps=10, seed = 31415)}
 
-guess_stnderr <- function(pre_test=NULL, pst_test=NULL, nsamps=100, seed = 31415) 
+guess_stnderr <- function(pre_test=NULL, pst_test=NULL, nsamps=100, seed = 31415, force9=FALSE) 
 {
 	
 	# pre_test <- alldat[,t1]; pst_test <-  alldat[,t2]; nsamps=10; seed = 31415
+	# pre_test <- alldat_dk[,t1]; pst_test <-  alldat_dk[,t2]; nsamps=10; seed = 31415
 
 	# build a df
 	df 		<- data.frame(cbind(pre_test, pst_test))
 
 	# set nitems and nparams based on df		
 	nitems 	    <- ncol(df)/2	
-	transmatrix <- multi_transmat(pre_test, pst_test)
+	transmatrix <- multi_transmat(pre_test, pst_test, force9=force9)
 	nparams     <- ifelse(ncol(transmatrix)==4, 4, 8)	
 			
 	#define matrices to store samples and sample results		
@@ -45,7 +47,7 @@ guess_stnderr <- function(pre_test=NULL, pst_test=NULL, nsamps=100, seed = 31415
 	# Looping through the samples; estimating based one each
 	for(i in 1:length(resamples)) {
 		print(i)
-		transmatrix_i           <- multi_transmat(resamples[[i]][,1:nitems], resamples[[i]][,(nitems+1):(2*nitems)], force9=TRUE)
+		transmatrix_i           <- multi_transmat(resamples[[i]][,1:nitems], resamples[[i]][,(nitems+1):(2*nitems)], force9=force9)
 		resamps.results[[i]] 	<- guesstimate(transmatrix_i)
 		resamps.lca.eff[i,] 	<- resamps.results[[i]]$est.learning
 		resamps.agg[i,] 		<- transmatrix_i[nitems,]
