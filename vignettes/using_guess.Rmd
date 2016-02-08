@@ -41,7 +41,7 @@ The standard correction for guessing assumes that people guess randomly. And tha
 
 #### Latent Class Correction for Guessing
 
-See the [paper](http://gsood.com/research/guess.pdf) for details.
+See the [paper](http://gsood.com/research/papers/guess.pdf) for details.
 
 ----
 
