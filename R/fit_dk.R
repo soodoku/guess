@@ -8,18 +8,22 @@
 #' @param pst_test data.frame carrying pst_test items 
 #' @param g 		estimates of \eqn{\gamma} produced from \code{\link{guesstimate}}
 #' @param est.param estimated parameters produced from \code{\link{guesstimate}}
+#' @param force9       Optional. There are cases where DK data doesn't have DK. But we need the entire matrix. By default it is FALSE.
 #' @return matrix with two rows: top row carrying chi-square value, and bottom row probability of observing that value
 #' @export
 #' @examples
 #' \dontrun{fit_dk(pre_test, pst_test, g, est.param)}
 
-fit_dk <- function(pre_test, pst_test, g, est.param) 
+fit_dk <- function(pre_test, pst_test, g, est.param, force9=FALSE) 
 {
 
-	data    <- multi_transmat(pre_test, pst_test)
-	expec	<- matrix(ncol=nrow(data),nrow=9)
-	fit		<- matrix(ncol=nrow(data),nrow=2)
-			
+	data    <- multi_transmat(pre_test, pst_test, force9=force9)
+	data    <- data[(1:nrow(data)-1),] # remove the agg.
+	expec	<- matrix(ncol=nrow(data), nrow=9)
+	fit		<- matrix(ncol=nrow(data), nrow=2)
+	colnames(fit) <- rownames(data)
+	rownames(fit) <- c("chi-square", "p-value")
+
 	for(i in 1:nrow(data)){
 		gi			<- g[[i]]
 		expec[1, i]	<- (1 - gi)*(1-gi)*est.param[1,i]*sum(data[i,])
@@ -34,6 +38,7 @@ fit_dk <- function(pre_test, pst_test, g, est.param)
 		test 		<- suppressWarnings(chisq.test(expec[,i], p=data[i,]/sum(data[i,])))
 		fit[1:2,i]	<- round(unlist(test[c(1,3)]),3)
 	}
+
 
 	fit
 }

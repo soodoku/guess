@@ -16,9 +16,12 @@
 fit_nodk <- function(pre_test, pst_test, g, est.param) {
 
 	data    <- multi_transmat(pre_test, pst_test)
+	data    <- data[(1:nrow(data)-1),] # remove the agg.
 	expec	<- matrix(ncol=nrow(data), nrow=4)
 	fit		<- matrix(ncol=nrow(data), nrow=2)
-			
+	colnames(fit) <- rownames(data)
+	rownames(fit) <- c("chi-square", "p-value")
+		
 	for (i in 1:nrow(data)) {
 		
 		gi			<- g[[i]]
