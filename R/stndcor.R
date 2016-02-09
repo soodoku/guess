@@ -9,7 +9,7 @@
 #'
 #' @param pre_test Required. data.frame carrying responses to pre-test questions.
 #' @param pst_test Required. data.frame carrying responses to post-test questions.
-#' @param lucky    Required. A vector. Each entry is 1/(no. of options)
+#' @param lucky    Required. A vector. Each entry is 1/(number of options)
 #' @param item_names Optional. A vector carrying item names.
 #' 
 #' @return   a list of three vectors, carrying pre-treatment corrected scores, post-treatment scores, and adjusted estimates of learning

@@ -142,7 +142,7 @@ round(res_dk$est.learning[1:4], 3)
 pre_test <- data.frame(item1=c(1,0,0,1,0), item2=c(1,NA,0,1,0)) 
 pst_test <-  pre_test + cbind(c(0,1,1,0,0), c(0,1,0,0,1))
 diff <- pst_test - pre_test
-stnd_err <-  sapply(diff, function(x) sqrt(var(x, na.rm=T)/(length(x)-1)))
+stnd_err <-  sapply(diff, function(x) sqrt(var(x, na.rm=T)/length(x)))
 
 # Bootstrapped s.e.
 

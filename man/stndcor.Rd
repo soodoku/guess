@@ -12,7 +12,7 @@ stndcor(pre_test = NULL, pst_test = NULL, lucky = NULL,
 
 \item{pst_test}{Required. data.frame carrying responses to post-test questions.}
 
-\item{lucky}{Required. A vector. Each entry is 1/(no. of options)}
+\item{lucky}{Required. A vector. Each entry is 1/(number of options)}
 
 \item{item_names}{Optional. A vector carrying item names.}
 }
