@@ -31,9 +31,6 @@ stndcor <- function(pre_test=NULL, pst_test=NULL, lucky=NULL, item_names=NULL)
 	if (is.null(lucky))    stop("Specify lucky vector.")           # lucky vector is missing
 	
 	if (length(unique(length(pre_test), length(pst_test), length(lucky)))!=1) stop("Length of input varies. Length of pre_test, pst_test, and lucky must be the same.")
-	
-	lucky <- lucky[1:(length(lucky)-1)]
-	
 	n_items <- length(pre_test) # total number of items
 	pre_test_cor  <- pst_test_cor <- stnd_cor <- NA
 	
