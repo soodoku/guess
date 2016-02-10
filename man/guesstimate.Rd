@@ -15,4 +15,11 @@ list with two items: parameter estimates and estimates of learning
 \description{
 guesstimate
 }
+\examples{
+# Without DK
+pre_test <- data.frame(item1=c(1,0,0,1,0), item2=c(1,NA,0,1,0)) 
+pst_test <- pre_test + cbind(c(0,1,1,0,0), c(0,1,0,0,1))
+transmatrix <- transmat(pre_test_var, pst_test_var)
+res <- guesstimate(transmatrix)
+}
 

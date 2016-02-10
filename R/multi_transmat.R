@@ -7,7 +7,8 @@
 #' @param pre_test Required. data.frame carrying responses to pre-test questions.
 #' @param pst_test Required. data.frame carrying responses to post-test questions.
 #' @param subgroup a Boolean vector identifying the subset. Default is NULL.
-#' @param force9       Optional. There are cases where DK data doesn't have DK. But we need the entire matrix. By default it is FALSE.
+#' @param force9   Optional. There are cases where DK data doesn't have DK. But we need the entire matrix. By default it is FALSE.
+#' @param agg      Optional. Boolean. Whether or not to add a row of aggregate transitions at the end of the matrix. Default is FALSE.
 #' @return matrix with rows = total number of items + 1 (last row contains aggregate distribution across items)
 #' number of columns = 4 when no don't know, and 9 when there is a don't know option
 #' @export
@@ -17,7 +18,7 @@
 #'						  pst_item2 = pre_test[,2] + c(0,1,0,0,1))
 #' multi_transmat(pre_test, pst_test)
 
-multi_transmat <- function (pre_test = NULL, pst_test=NULL, subgroup=NULL, force9=FALSE) 
+multi_transmat <- function (pre_test = NULL, pst_test=NULL, subgroup=NULL, force9=FALSE, agg=FALSE) 
 {
 
 	# Checks
@@ -50,12 +51,11 @@ multi_transmat <- function (pre_test = NULL, pst_test=NULL, subgroup=NULL, force
 	col_names <- names(res[[1]])
 
 	res       <- matrix(unlist(res), nrow=n_items, byrow=T, dimnames=list(row_names, col_names))
-	res       <- rbind(res, colSums(res, na.rm=T))
-	rownames(res)[nrow(res)] <- "agg"
 
-	#cat("\n Aggregate \n")
-	#prmatrix(res)
-	#cat("\n")
+	if (agg==TRUE) {
+		res       <- rbind(res, colSums(res, na.rm=T))
+		rownames(res)[nrow(res)] <- "agg"
+	}
 
 	return(invisible(res))
 }

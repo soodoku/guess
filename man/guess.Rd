@@ -4,7 +4,7 @@
 \name{guess}
 \alias{guess}
 \alias{guess-package}
-\title{\pkg{guess} adjusts estimates of learning for guessing related bias.}
+\title{\pkg{guess} adjust estimates of learning for guessing related bias.}
 \description{
 It implements the method discussed in \url{http://gsood.com/research/papers/guess.pdf}
 }
