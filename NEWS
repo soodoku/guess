@@ -2,4 +2,5 @@ version .2 2016-02-XX
 -----------------------
 1. Consistent support for input data format (with potential for d for 'don't know').
 2. Get raw, stndcor, lcacor to input means, and s.e. Output to a data.frame with two cols. + agg. For consistency, bootstrap the s.e.
-3. Support common gamma with subsets
+3. Person level adjustments for LCA, and Standard
+4. Explain logic for Rsolnp priors and allow people to pass different priors
