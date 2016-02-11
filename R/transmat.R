@@ -21,15 +21,14 @@
 #' pst_test_var <- c(1,NA,1,"d",1,0,1,1,"d") 
 #' transmat(pre_test_var, pst_test_var)
 
-transmat <- function(pre_test_var, pst_test_var, subgroup=NULL, force9=FALSE) 
-{	
+transmat <- function(pre_test_var, pst_test_var, subgroup=NULL, force9=FALSE) {	
 
 	if (!is.null(subgroup))
 	{
 		pre_test_var <-subset(pre_test_var, subgroup)
 		pst_test_var <-subset(pst_test_var, subgroup)
 	}
-
+	
 	# No NAs
 	pre_test_nona <- nona(pre_test_var)
 	pst_test_nona <- nona(pst_test_var)

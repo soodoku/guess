@@ -17,10 +17,6 @@
 
 guess_stnderr <- function(pre_test=NULL, pst_test=NULL, nsamps=100, seed = 31415, force9=FALSE) 
 {
-	
-	# pre_test <- alldat[,t1]; pst_test <-  alldat[,t2]; nsamps=10; seed = 31415
-	# pre_test <- alldat_dk[,t1]; pst_test <-  alldat_dk[,t2]; nsamps=10; seed = 31415
-
 	# build a df
 	df 		<- data.frame(cbind(pre_test, pst_test))
 
@@ -47,7 +43,7 @@ guess_stnderr <- function(pre_test=NULL, pst_test=NULL, nsamps=100, seed = 31415
 	# Looping through the samples; estimating based one each
 	for(i in 1:length(resamples)) {
 		print(i)
-		transmatrix_i           <- multi_transmat(resamples[[i]][,1:nitems], resamples[[i]][,(nitems+1):(2*nitems)], force9=force9)
+		transmatrix_i           <- multi_transmat(resamples[[i]][,1:nitems], resamples[[i]][,(nitems+1):(2*nitems)], force9=force9, agg=T)
 		resamps.results[[i]] 	<- guesstimate(transmatrix_i)
 		resamps.lca.eff[i,] 	<- resamps.results[[i]]$est.learning
 		resamps.agg[i,] 		<- transmatrix_i[nitems,]

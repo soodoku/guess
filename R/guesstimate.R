@@ -10,7 +10,7 @@
 #' # Without DK
 #' pre_test <- data.frame(item1=c(1,0,0,1,0), item2=c(1,NA,0,1,0)) 
 #' pst_test <- pre_test + cbind(c(0,1,1,0,0), c(0,1,0,0,1))
-#' transmatrix <- transmat(pre_test_var, pst_test_var)
+#' transmatrix <- multi_transmat(pre_test, pst_test)
 #' res <- guesstimate(transmatrix)
 
 guesstimate <- function(transmatrix=NULL, nodk_priors=c(.3,.1,.1,.25), dk_priors=c(.3,.1,.2,.05,.1,.1,.05,.25)) 
@@ -22,8 +22,8 @@ guesstimate <- function(transmatrix=NULL, nodk_priors=c(.3,.1,.1,.25), dk_priors
 	est.opt <- matrix(ncol=nitems, nrow=nparams)
 	
 	# priors
-	nodk_priors <- prior4
-	dk_priors   <- prior8
+	nodk_priors <- nodk_priors
+	dk_priors   <- dk_priors
 
 	# effects
 	effects	<- matrix(ncol=nitems, nrow=1)

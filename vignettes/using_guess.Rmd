@@ -98,7 +98,6 @@ print(transmat(pre_test_var, pst_test_var))
 pre_test_var <- c(1,0,NA,1,"d","d",0,1,0)
 pst_test_var <- c(1,0,1,"d",1,0,1,1,"d")
 print(transmat(pre_test_var, pst_test_var))
-
 ```
 
 #### Adjusting Using the Latent Class Model

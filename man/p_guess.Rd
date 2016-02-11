@@ -4,12 +4,12 @@
 \alias{p_guess}
 \title{Person Level Adjustment}
 \usage{
-p_guess(pre, pst)
+p_guess(pre = NULL, pst = NULL)
 }
 \arguments{
-\item{t1}{t1 data frame}
+\item{pre}{pre data frame}
 
-\item{t2}{t2 data frame}
+\item{pst}{pst data frame}
 }
 \value{
 adjusted responses
