@@ -4,7 +4,6 @@ sudo: required
 warnings_are_errors: true
 
 r_binary_packages:
-  - devtools
   - covr
 
 after_success:
