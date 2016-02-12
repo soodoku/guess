@@ -6,8 +6,8 @@
 #'
 #' @param pre_test data.frame carrying pre_test items
 #' @param pst_test data.frame carrying pst_test items 
-#' @param g 		estimates of \eqn{\gamma} produced from \code{\link{guesstimate}}
-#' @param est.param estimated parameters produced from \code{\link{guesstimate}}
+#' @param g 		estimates of \eqn{\gamma} produced from \code{\link{lca_cor}}
+#' @param est.param estimated parameters produced from \code{\link{lca_cor}}
 #' @param force9       Optional. There are cases where DK data doesn't have DK. But we need the entire matrix. By default it is FALSE.
 #' @return matrix with two rows: top row carrying chi-square value, and bottom row probability of observing that value
 #' @export

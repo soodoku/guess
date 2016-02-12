@@ -11,9 +11,9 @@ fit_dk(pre_test, pst_test, g, est.param, force9 = FALSE)
 
 \item{pst_test}{data.frame carrying pst_test items}
 
-\item{g}{estimates of \eqn{\gamma} produced from \code{\link{guesstimate}}}
+\item{g}{estimates of \eqn{\gamma} produced from \code{\link{lca_cor}}}
 
-\item{est.param}{estimated parameters produced from \code{\link{guesstimate}}}
+\item{est.param}{estimated parameters produced from \code{\link{lca_cor}}}
 
 \item{force9}{Optional. There are cases where DK data doesn't have DK. But we need the entire matrix. By default it is FALSE.}
 }

@@ -30,8 +30,8 @@ transmat <- function(pre_test_var, pst_test_var, subgroup=NULL, force9=FALSE) {
 	}
 	
 	# No NAs
-	pre_test_nona <- nona(pre_test_var)
-	pst_test_nona <- nona(pst_test_var)
+	pre_test_nona <- nona(as.character(pre_test_var))
+	pst_test_nona <- nona(as.character(pst_test_var))
 	
 	# Check if the vector has only one of the 4 values
 	if (!all(unique(c(pre_test_nona, pst_test_nona)) %in% c(NA, "1", "0", "d"))) stop("The input vectors can only contain: 0, 1, NA, d")

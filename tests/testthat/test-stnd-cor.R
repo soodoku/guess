@@ -5,6 +5,6 @@ test_that("Standard Guessing Correction Happens Correctly", {
 	pst_test <-  pre_test + cbind(c(0,1,1,0,0), c(0,1,0,0,1))
 	lucky <- rep(.25, 2)
 	# Adjusted Effect
-	res <- stndcor(pre_test, pst_test, lucky)
+	res <- stnd_cor(pre_test, pst_test, lucky)
 	expect_that(res, is_a("list"))
 })

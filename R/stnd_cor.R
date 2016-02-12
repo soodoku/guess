@@ -18,13 +18,13 @@
 #' # Without DK
 #' pre_test <- data.frame(item1=c(1,0,0,1,0), item2=c(1,NA,0,1,0)) 
 #' pst_test <- pre_test + cbind(c(0,1,1,0,0), c(0,1,0,0,1))
-#' lucky <- rep(.25, 2); stndcor(pre_test, pst_test, lucky)
+#' lucky <- rep(.25, 2); stnd_cor(pre_test, pst_test, lucky)
 #' # With DK
 #' pre_test <- data.frame(item1=c(1,0,0,1,0,'d',0), item2=c(1,NA,0,1,0,'d','d')) 
 #' pst_test <- data.frame(item1=c(1,0,0,1,0,'d',1), item2=c(1,NA,0,1,0,1,'d')) 
-#' lucky <- rep(.25, 2); stndcor(pre_test, pst_test, lucky)
+#' lucky <- rep(.25, 2); stnd_cor(pre_test, pst_test, lucky)
 
-stndcor <- function(pre_test=NULL, pst_test=NULL, lucky=NULL, item_names=NULL)
+stnd_cor <- function(pre_test=NULL, pst_test=NULL, lucky=NULL, item_names=NULL)
 {	
 	if (!is.data.frame(pre_test)) stop("Specify pre_test data.frame.") # pre_test data frame is missing
 	if (!is.data.frame(pst_test)) stop("Specify pst_test data.frame.") # post_test data frame is missing

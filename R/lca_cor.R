@@ -11,9 +11,9 @@
 #' pre_test <- data.frame(item1=c(1,0,0,1,0), item2=c(1,NA,0,1,0)) 
 #' pst_test <- pre_test + cbind(c(0,1,1,0,0), c(0,1,0,0,1))
 #' transmatrix <- multi_transmat(pre_test, pst_test)
-#' res <- guesstimate(transmatrix)
+#' res <- lca_cor(transmatrix)
 
-guesstimate <- function(transmatrix=NULL, nodk_priors=c(.3,.1,.1,.25), dk_priors=c(.3,.1,.2,.05,.1,.1,.05,.25)) 
+lca_cor <- function(transmatrix=NULL, nodk_priors=c(.3,.1,.1,.25), dk_priors=c(.3,.1,.2,.05,.1,.1,.05,.25)) 
 {
 		
 	# Initialize results mat

@@ -11,9 +11,9 @@ fit_nodk(pre_test, pst_test, g, est.param)
 
 \item{pst_test}{data.frame carrying pst_test items}
 
-\item{g}{estimates of \eqn{\gamma} produced from \code{\link{guesstimate}}}
+\item{g}{estimates of \eqn{\gamma} produced from \code{\link{lca_cor}}}
 
-\item{est.param}{estimated parameters produced from \code{\link{guesstimate}}}
+\item{est.param}{estimated parameters produced from \code{\link{lca_cor}}}
 }
 \value{
 matrix with two rows: top row carrying chi-square value, and bottom row probability of observing that value

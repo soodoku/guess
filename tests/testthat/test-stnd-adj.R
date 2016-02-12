@@ -1,6 +1,6 @@
-context("Test transmat")
+context("Test Standard Adjustment")
 
-test_that("transmat and multi_transmat works correctly", {
+test_that("stnd adj works correctly", {
 
 	# Transmat
 	pre_test_var <- c(1,0,0,1,0,1,0) 

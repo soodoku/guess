@@ -13,9 +13,9 @@
 #' pre_test <- data.frame(pre_item1=c(1,0,0,1,0), pre_item2=c(1,NA,0,1,0)) 
 #' pst_test <- data.frame(pst_item1=pre_test[,1] + c(0,1,1,0,0), 
 #'						  pst_item2 = pre_test[,2] + c(0,1,0,0,1))
-#' \dontrun{guess_stnderr(pre_test, pst_test, nsamps=10, seed = 31415)}
+#' \dontrun{lca_se(pre_test, pst_test, nsamps=10, seed = 31415)}
 
-guess_stnderr <- function(pre_test=NULL, pst_test=NULL, nsamps=100, seed = 31415, force9=FALSE) 
+lca_se <- function(pre_test=NULL, pst_test=NULL, nsamps=100, seed = 31415, force9=FALSE) 
 {
 	# build a df
 	df 		<- data.frame(cbind(pre_test, pst_test))
@@ -44,7 +44,7 @@ guess_stnderr <- function(pre_test=NULL, pst_test=NULL, nsamps=100, seed = 31415
 	for(i in 1:length(resamples)) {
 		print(i)
 		transmatrix_i           <- multi_transmat(resamples[[i]][,1:nitems], resamples[[i]][,(nitems+1):(2*nitems)], force9=force9, agg=T)
-		resamps.results[[i]] 	<- guesstimate(transmatrix_i)
+		resamps.results[[i]] 	<- lca_cor(transmatrix_i)
 		resamps.lca.eff[i,] 	<- resamps.results[[i]]$est.learning
 		resamps.agg[i,] 		<- transmatrix_i[nitems,]
 
