@@ -16,7 +16,7 @@ group_adj(pre = NULL, pst = NULL, gamma = NULL, dk = 0.03)
 \item{dk}{Numeric. Between 0 and 1. Hidden knowledge behind don't know responses. Default is .03.}
 }
 \value{
-list of pre and post adjusted responses
+nested list of pre and post adjusted responses, and adjusted learning estimates
 }
 \description{
 Adjusts observed 1s based on propensity to guess (based on observed 0s) and item level \eqn{\gamma}. 
@@ -26,6 +26,6 @@ You can also put in your best estimate of hidden knowledge behind don't know res
 pre_test_var <- data.frame(pre=c(1,0,0,1,"d","d",0,1,NA))
 pst_test_var <- data.frame(pst=c(1,NA,1,"d",1,0,1,1,"d"))
 gamma <- c(.25)
-stnd_adj(pre_test_var, pst_test_var, gamma)
+group_adj(pre_test_var, pst_test_var, gamma)
 }
 

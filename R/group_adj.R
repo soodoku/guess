@@ -15,8 +15,7 @@
 #' gamma <- c(.25)
 #' group_adj(pre_test_var, pst_test_var, gamma)
 
-group_adj <- function(pre=NULL, pst=NULL, gamma=NULL, dk=.03)
-{
+group_adj <- function(pre=NULL, pst=NULL, gamma=NULL, dk=.03) {
 
   n   <- nrow(pre)
 

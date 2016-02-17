@@ -132,6 +132,29 @@ round(res_dk$param.lca[,1:4], 3)
 round(res_dk$est.learning[1:4], 3)
 ```
 
+#### Adjust by Groups
+
+Account for propensity to guess and item level attribute that a guess would be lucky. 
+
+```{r grp_adjust}
+pre_test_var <- data.frame(pre=c(1, 0, 1, 1, 0, "d", "d", 0, 1, NA, 0, 1, 1, 1, 1, 0, 0, 'd', 0, 0))
+pst_test_var <- data.frame(pst=c(1, 0, NA, 1, "d", 1, 0, 1, 1, "d", 1, 1, 1, 0, 1, 1, 0, 1, 1, 0))
+grp = c(rep(1,10), rep(0,10))
+
+group_adj(pre_test_var, pst_test_var, gamma=0, dk=0)$learn
+group_adj(pre_test_var, pst_test_var, gamma=.25, dk=0)$learn
+stnd_cor(pre_test_var, pst_test_var, lucky=.25)$learn
+
+grp0_raw <- group_adj(subset(pre_test_var, grp==0), subset(pst_test_var, grp==0), gamma=0, dk=0)$learn
+grp1_raw <- group_adj(subset(pre_test_var, grp==1), subset(pst_test_var, grp==1), gamma=0, dk=0)$learn
+
+grp0_adj <- group_adj(subset(pre_test_var, grp==0), subset(pst_test_var, grp==0), gamma=.25, dk=0)$learn
+grp1_adj <- group_adj(subset(pre_test_var, grp==1), subset(pst_test_var, grp==1), gamma=.25, dk=0)$learn
+
+grp0_raw - grp1_raw
+grp0_adj - grp1_adj
+```
+
 #### Standard Errors
 
 ```{r lca_err}
