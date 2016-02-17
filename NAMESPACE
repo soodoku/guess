@@ -2,12 +2,12 @@
 
 export(fit_dk)
 export(fit_nodk)
+export(group_adj)
 export(lca_adj)
 export(lca_cor)
 export(lca_se)
 export(multi_transmat)
 export(nona)
-export(stnd_adj)
 export(stnd_cor)
 export(transmat)
 importFrom(Rsolnp,solnp)
