@@ -29,7 +29,7 @@ Measurement of knowledge is fundamentally reactive -- we must probe to learn. Bu
 1. **Dealing with Missing Data**  
 If you assume that the data are missing completely at random, you can simply ignore them. Generally, however, respondents tend to skip items they don't know. So missing responses on knowledge questions typically indicate ignorance. (Of course, it is important to investigate other potential reasons behind missing data. And we encourage researchers to take all precautions.) In our treatment, however, for simplicity sake, we treat missing as indicators of ignorance. 
 
-2. **Dealing with Don't Know**  
+2. **Dealing with Don't Knows**  
 We now know a little bit about Don't Know. One generally strategy is to treat Don't Know responses as ignorance. But research suggests that on average there is approximately 3\% hidden knowledge behind Don't Know responses. See [DK Means DK](http://johnbullock.org/papers/DKs/DK.pdf) by Robert Luskin and John Bullock. Thus one can also choose to replace Don't Know responses with .03.
 
 3. **Related Knowledge**  
@@ -47,7 +47,13 @@ See the [paper](http://gsood.com/research/papers/guess.pdf) for details.
 
 ### Installation
 
-To get the current development version from github:
+To get the current CRAN version:
+
+```{r, eval=FALSE, cran_install}
+#install.packages("guess")
+```
+
+To get the current development version from GitHub:
 
 ```{r, eval=FALSE, install}
 # install.packages("devtools")
