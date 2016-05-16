@@ -9,7 +9,7 @@ citEntry(entry="Manual",
 		  year = year,
 		  note = vers,
 		  textVersion =
-		  paste("Gaurav Sood (",
+		  paste("Gaurav Sood and Ken Cor (",
 				year,
-				"). guess: Guessing Adjusted Estimates of Learning.",
+				"). guess: Guessing Adjusted Estimates of Learning. ",
 				vers, ".", sep=""))

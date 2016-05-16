@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/soodoku/guess.svg?branch=master)](https://travis-ci.org/soodoku/guess)
 [![Build status](https://ci.appveyor.com/api/projects/status/lxihn9905m74brcl?svg=true)](https://ci.appveyor.com/project/soodoku/guess)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/guess)](http://cran.r-project.org/web/packages/guess)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/guess)](https://cran.r-project.org/package=guess)
 [![codecov.io](https://codecov.io/github/soodoku/guess/coverage.svg?branch=master)](https://codecov.io/github/soodoku/guess?branch=master)
 ![](http://cranlogs.r-pkg.org/badges/grand-total/guess)
 
