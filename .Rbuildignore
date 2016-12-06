@@ -6,4 +6,5 @@
 ^codecov.yml$
 ^dev$
 ^revdep$
+^docs$
 ^cran-comments.md$
