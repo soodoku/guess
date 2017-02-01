@@ -37,4 +37,3 @@ pre_test <- data.frame(item1=c(1,0,0,1,0,'d',0), item2=c(1,NA,0,1,0,'d','d'))
 pst_test <- data.frame(item1=c(1,0,0,1,0,'d',1), item2=c(1,NA,0,1,0,1,'d')) 
 lucky <- rep(.25, 2); stnd_cor(pre_test, pst_test, lucky)
 }
-

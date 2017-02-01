@@ -17,4 +17,3 @@ guess_lik(x, g1 = x[4], data)
 Likelihood function for data without Don't Know. Used Internally.
 }
 \keyword{internal}
-

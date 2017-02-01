@@ -3,6 +3,7 @@
 \docType{data}
 \name{alldat}
 \alias{alldat}
+\alias{alldat}
 \alias{alldat_dk}
 \title{Simulated Responses to Knowledge Questions Without Don't Know}
 \format{A data frame with 500 rows and 4000 variables:}
@@ -17,4 +18,3 @@ Simulate Pre- and Post-Process Responses to Knowledge Questions without Don't Kn
 Simulate Pre- and Post-Process Responses to Knowledge Questions with Don't Know
 }
 \keyword{data}
-

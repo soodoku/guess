@@ -12,4 +12,3 @@ dk_sim
 Simulate Pre- and Post-Process Responses to Knowledge Questions with Don't Know
 }
 \keyword{data}
-

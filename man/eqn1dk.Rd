@@ -18,4 +18,3 @@ Constraints that some params sum to 1. Used Internally. For data with DK.
 Functions for constraining lambdas to sum to 1 and to bound params between 0 and 1
 }
 \keyword{internal}
-

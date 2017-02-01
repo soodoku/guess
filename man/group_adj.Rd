@@ -28,4 +28,3 @@ pst_test_var <- data.frame(pst=c(1,NA,1,"d",1,0,1,1,"d"))
 gamma <- c(.25)
 group_adj(pre_test_var, pst_test_var, gamma)
 }
-

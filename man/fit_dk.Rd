@@ -29,4 +29,3 @@ fit_nodk
 \examples{
 \dontrun{fit_dk(pre_test, pst_test, g, est.param)}
 }
-

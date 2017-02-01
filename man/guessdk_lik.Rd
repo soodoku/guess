@@ -17,4 +17,3 @@ guessdk_lik(x, g1 = x[8], data)
 Likelihood function for data with Don't Know. Used Internally.
 }
 \keyword{internal}
-
