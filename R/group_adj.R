@@ -26,15 +26,15 @@ group_adj <- function(pre = NULL, pst = NULL, gamma = NULL, dk = .03) {
   }
 
   # Adj
-  t1_guess   <- 1 - mapply(function(x, y) (sum(x==0)/(1/y-1))/sum(x==1),  pre, gamma)
-  t2_guess   <- 1 - mapply(function(x, y) (sum(x==0)/(1/y-1))/sum(x==1),  pst, gamma)
+  t1_guess   <- 1 - mapply(function(x, y) (sum(x == 0)/(1/y-1))/sum(x == 1),  pre, gamma)
+  t2_guess   <- 1 - mapply(function(x, y) (sum(x == 0)/(1/y-1))/sum(x == 1),  pst, gamma)
 
-  dt1_guess  <- as.data.frame(mapply(function(x, y) ifelse(x==1, y, x), pre, t1_guess)) 
-  dt2_guess  <- as.data.frame(mapply(function(x, y) ifelse(x==1, y, x), pst, t2_guess))
+  dt1_guess  <- as.data.frame(mapply(function(x, y) ifelse(x == 1, y, x), pre, t1_guess)) 
+  dt2_guess  <- as.data.frame(mapply(function(x, y) ifelse(x == 1, y, x), pst, t2_guess))
 
   # Replace dk
-  dt1_guess_dk  <- as.data.frame(sapply(dt1_guess,  function(x){ x[x=='d'] <- dk; as.numeric(x)}))
-  dt2_guess_dk  <- as.data.frame(sapply(dt2_guess,  function(x){ x[x=='d'] <- dk; as.numeric(x)}))
+  dt1_guess_dk  <- as.data.frame(sapply(dt1_guess,  function(x){ x[x == 'd'] <- dk; as.numeric(x)}))
+  dt2_guess_dk  <- as.data.frame(sapply(dt2_guess,  function(x){ x[x == 'd'] <- dk; as.numeric(x)}))
 
   indiv_adj     <- list(pre_adj = dt1_guess_dk, pst_adj = dt2_guess_dk)
   adj_learn     <- colMeans(dt2_guess_dk - dt1_guess_dk)

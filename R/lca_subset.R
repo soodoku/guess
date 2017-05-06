@@ -22,7 +22,7 @@ lca_adj <- function(pre = NULL, pst = NULL) {
   }
 
   transmatrix <- multi_transmat(pre, pst)
-  
+
   lca_res     <- lca_cor(transmatrix)
   param_lca   <- lca_res$param.lca
 
@@ -35,5 +35,5 @@ lca_adj <- function(pre = NULL, pst = NULL) {
   t1adj <-  sapply(t1adj, function(x) {x[x == 'd'] <- 0; x})
   t2adj <-  sapply(t2adj, function(x) {x[x == 'd'] <- 0; x})
 
-  return(list(pre = t1adj, pst = t2adj)) 
+  list(pre = t1adj, pst = t2adj)
 }
