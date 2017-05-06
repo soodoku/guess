@@ -6,8 +6,8 @@
 #' @param g1   guess
 #' @param data transition matrix
 
-guessdk_lik <- function(x, g1 = x[8], data) 
-{
+guessdk_lik <- function(x, g1 = x[8], data) {
+
   lgg <- x[1]
   lgk <- x[2] 
   lgc <- x[3]
@@ -15,7 +15,7 @@ guessdk_lik <- function(x, g1 = x[8], data)
   lcg <- x[5]
   lck <- x[6]
   lcc <- x[7]
-      
+
   vec <- NA
   vec[1] <- (1 - g1)*(1 - g1)*lgg
   vec[2] <- (1 - g1)*g1*lgg + (1 - g1)*lgk
@@ -26,6 +26,6 @@ guessdk_lik <- function(x, g1 = x[8], data)
   vec[7] <- (1 - g1)*lcg
   vec[8] <- g1*lcg + lck
   vec[9] <- lcc
-  
+
   -sum(data*log(vec))
 }

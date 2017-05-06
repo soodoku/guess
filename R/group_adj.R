@@ -31,13 +31,13 @@ group_adj <- function(pre = NULL, pst = NULL, gamma = NULL, dk = .03) {
 
   dt1_guess  <- as.data.frame(mapply(function(x, y) ifelse(x==1, y, x), pre, t1_guess)) 
   dt2_guess  <- as.data.frame(mapply(function(x, y) ifelse(x==1, y, x), pst, t2_guess))
-  
+
   # Replace dk
   dt1_guess_dk  <- as.data.frame(sapply(dt1_guess,  function(x){ x[x=='d'] <- dk; as.numeric(x)}))
   dt2_guess_dk  <- as.data.frame(sapply(dt2_guess,  function(x){ x[x=='d'] <- dk; as.numeric(x)}))
-  
+
   indiv_adj     <- list(pre_adj = dt1_guess_dk, pst_adj = dt2_guess_dk)
   adj_learn     <- colMeans(dt2_guess_dk - dt1_guess_dk)
 
-  return(list(indiv = indiv_adj, learn = adj_learn)) 
+  list(indiv = indiv_adj, learn = adj_learn)
 }

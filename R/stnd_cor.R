@@ -30,16 +30,20 @@ stnd_cor <- function(pre_test = NULL, pst_test = NULL, lucky = NULL, item_names 
   if (!is.data.frame(pst_test)) stop("Specify pst_test data.frame.") # post_test data frame is missing
   if (is.null(lucky))    stop("Specify lucky vector.")           # lucky vector is missing
   
-  if (length(unique(length(pre_test), length(pst_test), length(lucky)))!=1) stop("Length of input varies. Length of pre_test, pst_test, and lucky must be the same.")
+  if (length(unique(length(pre_test), length(pst_test), length(lucky)))!=1) {
+    stop("Length of input varies. Length of pre_test, pst_test, and lucky must be the same.")
+  }
+
   n_items <- length(pre_test) # total number of items
   pre_test_cor  <- pst_test_cor <- stnd_cor <- NA
-  
+
   pre_test_cor <- mapply(function(x, y) sum(x == 1, na.rm = TRUE) - sum(x == 0, na.rm = TRUE)/(1/y - 1), pre_test, lucky)
   pst_test_cor <- mapply(function(x, y) sum(x == 1, na.rm = TRUE) - sum(x == 0, na.rm = TRUE)/(1/y - 1), pst_test, lucky)
   stnd_cor     <- pst_test_cor - pre_test_cor
 
   # Names of the return vector
   if (is.null(item_names)) {
+
     names(pre_test_cor) <- names(pst_test_cor) <- names(stnd_cor) <- names(pre_test)
   } else {
     names(pre_test_cor) <- names(pst_test_cor) <- names(stnd_cor) <- item_names
@@ -49,5 +53,5 @@ stnd_cor <- function(pre_test = NULL, pst_test = NULL, lucky = NULL, item_names 
   pst   <- pst_test_cor/nrow(pst_test)
   learn <- stnd_cor/nrow(pre_test)
 
-  return(list(pre = pre, pst = pst, learn = learn))
+  list(pre = pre, pst = pst, learn = learn)
 }

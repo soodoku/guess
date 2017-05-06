@@ -23,8 +23,8 @@ Adjusts observed 1s based on propensity to guess (based on observed 0s) and item
 You can also put in your best estimate of hidden knowledge behind don't know responses.
 }
 \examples{
-pre_test_var <- data.frame(pre=c(1,0,0,1,"d","d",0,1,NA))
-pst_test_var <- data.frame(pst=c(1,NA,1,"d",1,0,1,1,"d"))
+pre_test_var <- data.frame(pre = c(1,0,0,1,"d","d",0,1,NA))
+pst_test_var <- data.frame(pst = c(1,NA,1,"d",1,0,1,1,"d"))
 gamma <- c(.25)
 group_adj(pre_test_var, pst_test_var, gamma)
 }

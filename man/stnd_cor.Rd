@@ -29,11 +29,11 @@ item names as the pre_test items. However you can assign a vector of names separ
 }
 \examples{
 # Without DK
-pre_test <- data.frame(item1=c(1,0,0,1,0), item2=c(1,NA,0,1,0)) 
+pre_test <- data.frame(item1 = c(1,0,0,1,0), item2 = c(1,NA,0,1,0)) 
 pst_test <- pre_test + cbind(c(0,1,1,0,0), c(0,1,0,0,1))
 lucky <- rep(.25, 2); stnd_cor(pre_test, pst_test, lucky)
 # With DK
-pre_test <- data.frame(item1=c(1,0,0,1,0,'d',0), item2=c(1,NA,0,1,0,'d','d')) 
-pst_test <- data.frame(item1=c(1,0,0,1,0,'d',1), item2=c(1,NA,0,1,0,1,'d')) 
+pre_test <- data.frame(item1 = c(1,0,0,1,0,'d',0), item2 = c(1,NA,0,1,0,'d','d')) 
+pst_test <- data.frame(item1 = c(1,0,0,1,0,'d',1), item2 = c(1,NA,0,1,0,1,'d')) 
 lucky <- rep(.25, 2); stnd_cor(pre_test, pst_test, lucky)
 }
