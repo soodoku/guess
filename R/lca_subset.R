@@ -7,12 +7,11 @@
 #' @return list of pre and post adjusted responses
 #' @export
 #' @examples
-#' pre_test_var <- data.frame(pre=c(1,0,0,1,"d","d",0,1,NA))
-#' pst_test_var <- data.frame(pst=c(1,NA,1,"d",1,0,1,1,"d"))
+#' pre_test_var <- data.frame(pre = c(1,0,0,1,"d","d",0,1,NA))
+#' pst_test_var <- data.frame(pst = c(1,NA,1,"d",1,0,1,1,"d"))
 #' lca_adj(pre_test_var, pst_test_var)
 
-lca_adj <- function(pre=NULL, pst=NULL)
-{
+lca_adj <- function(pre = NULL, pst = NULL) {
 
   n <- nrow(pre)
 
@@ -27,15 +26,14 @@ lca_adj <- function(pre=NULL, pst=NULL)
   lca_res     <- lca_cor(transmatrix)
   param_lca   <- lca_res$param.lca
 
-  pk1 <-  n*param_lca["lkk",]/sapply(pre, function(x) sum(x==1))
-  pk2 <-  n*(param_lca["lgk",] + param_lca["lkk",] + param_lca["lck",])/sapply(pst, function(x) sum(x==1))
+  pk1 <-  n*param_lca["lkk",]/sapply(pre, function(x) sum(x == 1))
+  pk2 <-  n*(param_lca["lgk",] + param_lca["lkk",] + param_lca["lck",])/sapply(pst, function(x) sum(x == 1))
 
-  t1adj <- as.data.frame(mapply(function(x, y) ifelse(x==1, y, x), pre, pk1))
-  t2adj <- as.data.frame(mapply(function(x, y) ifelse(x==1, y, x), pst, pk2))
+  t1adj <- as.data.frame(mapply(function(x, y) ifelse(x == 1, y, x), pre, pk1))
+  t2adj <- as.data.frame(mapply(function(x, y) ifelse(x == 1, y, x), pst, pk2))
 
-  t1adj <-  sapply(t1adj, function(x) {x[x=='d'] <- 0; x})
-  t2adj <-  sapply(t2adj, function(x) {x[x=='d'] <- 0; x})
+  t1adj <-  sapply(t1adj, function(x) {x[x == 'd'] <- 0; x})
+  t2adj <-  sapply(t2adj, function(x) {x[x == 'd'] <- 0; x})
 
-  return(list(pre=t1adj, pst=t2adj)) 
+  return(list(pre = t1adj, pst = t2adj)) 
 }
-

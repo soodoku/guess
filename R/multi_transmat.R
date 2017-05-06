@@ -13,49 +13,49 @@
 #' number of columns = 4 when no don't know, and 9 when there is a don't know option
 #' @export
 #' @examples
-#' pre_test <- data.frame(pre_item1=c(1,0,0,1,0), pre_item2=c(1,NA,0,1,0)) 
-#' pst_test <- data.frame(pst_item1=pre_test[,1] + c(0,1,1,0,0), 
-#'						  pst_item2 = pre_test[,2] + c(0,1,0,0,1))
+#' pre_test <- data.frame(pre_item1 = c(1,0,0,1,0), pre_item2 = c(1,NA,0,1,0)) 
+#' pst_test <- data.frame(pst_item1 = pre_test[,1] + c(0,1,1,0,0), 
+#'              pst_item2 = pre_test[,2] + c(0,1,0,0,1))
 #' multi_transmat(pre_test, pst_test)
 
-multi_transmat <- function (pre_test = NULL, pst_test=NULL, subgroup=NULL, force9=FALSE, agg=FALSE) 
+multi_transmat <- function (pre_test = NULL, pst_test = NULL, subgroup = NULL, force9 = FALSE, agg = FALSE) 
 {
 
-	# Checks
-	if (!is.data.frame(pre_test)) stop("Specify pre_test data.frame.") # pre_test data frame is missing
-	if (!is.data.frame(pst_test)) stop("Specify pst_test data.frame.") # post_test data frame is missing
-	if(length(pre_test)!=length(pst_test)) stop("Lengths of pre_test and pst_test must be the same.") # If different no. of items
-	
-	# Subset
-	if (!is.null(subgroup))
-	{
-		pre_test <- subset(pre_test, subgroup)
-		pst_test <- subset(pst_test, subgroup)
-	}
-	
-	# No. of items
-	n_items <- length(pre_test)
+  # Checks
+  if (!is.data.frame(pre_test)) stop("Specify pre_test data.frame.") # pre_test data frame is missing
+  if (!is.data.frame(pst_test)) stop("Specify pst_test data.frame.") # post_test data frame is missing
+  if(length(pre_test)!=length(pst_test)) stop("Lengths of pre_test and pst_test must be the same.") # If different no. of items
+  
+  # Subset
+  if (!is.null(subgroup))
+  {
+    pre_test <- subset(pre_test, subgroup)
+    pst_test <- subset(pst_test, subgroup)
+  }
+  
+  # No. of items
+  n_items <- length(pre_test)
 
-	# Initialize results
-	res <- list()
-	
-	# Get transition matrix for each item pair
-	for (i in 1:n_items)
-	{
-		# cat("\n Item", i, "\n")
-		res[[i]] <- transmat(pre_test[,i], pst_test[,i], force9=force9)
-	}
+  # Initialize results
+  res <- list()
+  
+  # Get transition matrix for each item pair
+  for (i in 1:n_items) {
 
-	# Prepping results
-	row_names <- paste0("item", 1:n_items) 
-	col_names <- names(res[[1]])
+    # cat("\n Item", i, "\n")
+    res[[i]] <- transmat(pre_test[,i], pst_test[,i], force9 = force9)
+  }
 
-	res       <- matrix(unlist(res), nrow=n_items, byrow=T, dimnames=list(row_names, col_names))
+  # Prepping results
+  row_names <- paste0("item", 1:n_items) 
+  col_names <- names(res[[1]])
 
-	if (agg==TRUE) {
-		res       <- rbind(res, colSums(res, na.rm=T))
-		rownames(res)[nrow(res)] <- "agg"
-	}
+  res       <- matrix(unlist(res), nrow = n_items, byrow = T, dimnames = list(row_names, col_names))
 
-	return(invisible(res))
+  if (agg==TRUE) {
+    res       <- rbind(res, colSums(res, na.rm = T))
+    rownames(res)[nrow(res)] <- "agg"
+  }
+
+  return(invisible(res))
 }

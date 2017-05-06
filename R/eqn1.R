@@ -7,6 +7,6 @@
 #' @param g1   guess
 #' @param data transition matrix
 
-eqn1 = function(x, g1=NA, data) {
-	sum(x[1:3])
+eqn1 <- function(x, g1 = NA, data) {
+  sum(x[1:3])
 }

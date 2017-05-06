@@ -10,12 +10,12 @@
 #' @return nested list of pre and post adjusted responses, and adjusted learning estimates
 #' @export
 #' @examples
-#' pre_test_var <- data.frame(pre=c(1,0,0,1,"d","d",0,1,NA))
-#' pst_test_var <- data.frame(pst=c(1,NA,1,"d",1,0,1,1,"d"))
+#' pre_test_var <- data.frame(pre = c(1,0,0,1,"d","d",0,1,NA))
+#' pst_test_var <- data.frame(pst = c(1,NA,1,"d",1,0,1,1,"d"))
 #' gamma <- c(.25)
 #' group_adj(pre_test_var, pst_test_var, gamma)
 
-group_adj <- function(pre=NULL, pst=NULL, gamma=NULL, dk=.03) {
+group_adj <- function(pre = NULL, pst = NULL, gamma = NULL, dk = .03) {
 
   n   <- nrow(pre)
 
@@ -36,9 +36,8 @@ group_adj <- function(pre=NULL, pst=NULL, gamma=NULL, dk=.03) {
   dt1_guess_dk  <- as.data.frame(sapply(dt1_guess,  function(x){ x[x=='d'] <- dk; as.numeric(x)}))
   dt2_guess_dk  <- as.data.frame(sapply(dt2_guess,  function(x){ x[x=='d'] <- dk; as.numeric(x)}))
   
-  indiv_adj     <- list(pre_adj = dt1_guess_dk, pst_adj=dt2_guess_dk)
+  indiv_adj     <- list(pre_adj = dt1_guess_dk, pst_adj = dt2_guess_dk)
   adj_learn     <- colMeans(dt2_guess_dk - dt1_guess_dk)
 
-  return(list(indiv=indiv_adj, learn = adj_learn)) 
+  return(list(indiv = indiv_adj, learn = adj_learn)) 
 }
-

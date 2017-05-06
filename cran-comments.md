@@ -1,10 +1,10 @@
-This is an original submission.
+This is a re-submission.
 ----------------------------------
 
 ## Test environments
-* local OS X install, R 3.2.3
-* ubuntu 12.04 (on travis-ci), R 3.2.3
-* Windows Server 2012 R2 (x64) (on appveyor), R 3.2.3
+* local OS X install, R 3.4.0
+* ubuntu 12.04 (on travis-ci), R 3.4.0
+* local Windows 10 install (x64), R 3.4.0
 
 ## R CMD check results
 There were no ERRORs, or WARNINGs.
