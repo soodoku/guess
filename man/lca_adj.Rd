@@ -19,7 +19,7 @@ Adjusts observed 1s based on item level parameters of the LCA model. Currently o
 If NAs are observed in the data, they are treating as acknowledgments of ignorance.
 }
 \examples{
-pre_test_var <- data.frame(pre = c(1,0,0,1,"d","d",0,1,NA))
-pst_test_var <- data.frame(pst = c(1,NA,1,"d",1,0,1,1,"d"))
+pre_test_var <- data.frame(pre = c(1, 0, 0, 1, "d", "d", 0, 1, NA))
+pst_test_var <- data.frame(pst = c(1, NA, 1, "d", 1, 0, 1, 1, "d"))
 lca_adj(pre_test_var, pst_test_var)
 }

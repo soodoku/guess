@@ -31,8 +31,8 @@ fit_nodk <- function(pre_test, pst_test, g, est.param) {
     expec[1, i]  <- (1 - gi) * (1 - gi) * est.param[1, i] * sum(data[i, ])
     expec[2, i]  <- ( (1 - gi) * gi * est.param[1, i] +
                     (1 - gi) * est.param[2, i]) * sum(data[i, ])
-    expec[3, i]  <- ( (1 - gi) * est.param[3, i] * est.param[1, i] ) *
-                     sum(data[i, ])
+    expec[3, i]  <- (1 - gi) * est.param[3, i] * est.param[1, i] *
+                    sum(data[i, ])
     expec[4, i]  <- (gi * gi * est.param[1, i] + gi * est.param[2, i] +
                      est.param[3, i]) * sum(data[i, ])
     test     <- suppressWarnings(chisq.test(expec[, i],
