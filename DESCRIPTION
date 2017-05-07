@@ -20,5 +20,6 @@ VignetteBuilder: knitr
 Suggests:
     knitr (>= 1.11),
     rmarkdown,
-    testthat
+    testthat,
+    lintr
 RoxygenNote: 6.0.1
