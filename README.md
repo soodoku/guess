@@ -5,6 +5,8 @@
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/guess)](https://cran.r-project.org/package=guess)
 [![codecov](https://codecov.io/gh/soodoku/guess/branch/master/graph/badge.svg)](https://codecov.io/gh/soodoku/guess)
 ![](http://cranlogs.r-pkg.org/badges/grand-total/guess)
+[![Research software impact](http://depsy.org/api/package/cran/guess/badge.svg)](http://depsy.org/package/r/guess)
+[![Github Stars](https://img.shields.io/github/stars/soodoku/guess.svg?style=social&label=Github)](https://github.com/soodoku/guess)
 
 Over informative processes, naive estimator of learning---difference between post and pre process scores---underestimates actual learning. A heuristic account for why the naive estimator is negatively biased is as follows: people know as much or more after exposed to an informative process than before it. And the less people know, the larger the number of items they don't know. And greater the opportunity to guess. 
 
