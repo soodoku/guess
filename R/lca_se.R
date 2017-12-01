@@ -7,8 +7,11 @@
 #' @param nsamps  number of resamples, default is 100
 #' @param seed    random seed, default is 31415
 #' @param force9       Optional. There are cases where DK data doesn't have DK. But we need the entire matrix. By default it is FALSE.
+#' 
 #' @return  list with standard error of parameters, estimates of learning, standard error of learning by item
+#' 
 #' @export
+#' 
 #' @examples
 #' pre_test <- data.frame(pre_item1 = c(1,0,0,1,0), pre_item2 = c(1,NA,0,1,0)) 
 #' pst_test <- data.frame(pst_item1 = pre_test[,1] + c(0,1,1,0,0), 
