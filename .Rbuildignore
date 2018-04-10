@@ -9,3 +9,5 @@
 ^docs$
 ^cran-comments.md$
 .lintr
+^_pkgdown\.yml$
+.github
