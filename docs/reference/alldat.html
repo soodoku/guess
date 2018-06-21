@@ -21,15 +21,27 @@
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
 
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
+
+
+<!-- docsearch -->
+<script src="../docsearch.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+<link href="../docsearch.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+
+
 <meta property="og:title" content="Simulated Responses to Knowledge Questions Without Don't Know — alldat" />
 
 <meta property="og:description" content="Simulate Pre- and Post-Process Responses to Knowledge Questions without Don't Know
 Simulate Pre- and Post-Process Responses to Knowledge Questions with Don't Know" />
 <meta name="twitter:card" content="summary" />
+
 
 
 <!-- mathjax -->
@@ -40,11 +52,6 @@ Simulate Pre- and Post-Process Responses to Knowledge Questions with Don't Know"
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-
-
-
-<!-- docsearch -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
 
   </head>
 
@@ -104,7 +111,7 @@ Simulate Pre- and Post-Process Responses to Knowledge Questions with Don't Know"
       
       <form class="navbar-form navbar-right" role="search">
         <div class="form-group">
-          <input type="search" class="form-control" id="search-input" placeholder="Search..." aria-label="Search for..." autocomplete="off">
+          <input type="search" class="form-control" name="search-input" id="search-input" placeholder="Search..." aria-label="Search for..." autocomplete="off">
         </div>
       </form>
       
@@ -119,14 +126,16 @@ Simulate Pre- and Post-Process Responses to Knowledge Questions with Don't Know"
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Simulated Responses to Knowledge Questions Without Don't Know</h1>
-    <small>Source: <a href='http://github.com/soodoku/guess/blob/master/R/alldat.R'><code>R/alldat.R</code></a>, <a href='http://github.com/soodoku/guess/blob/master/R/alldat_dk.R'><code>R/alldat_dk.R</code></a></small>
+    <small class="dont-index">Source: <a href='http://github.com/soodoku/guess/blob/master/R/alldat.R'><code>R/alldat.R</code></a>, <a href='http://github.com/soodoku/guess/blob/master/R/alldat_dk.R'><code>R/alldat_dk.R</code></a></small>
     <div class="hidden name"><code>alldat.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>Simulate Pre- and Post-Process Responses to Knowledge Questions without Don't Know</p>
 <p>Simulate Pre- and Post-Process Responses to Knowledge Questions with Don't Know</p>
     
+    </div>
 
     <pre class="usage"><span class='no'>alldat</span>
 
@@ -165,10 +174,16 @@ Simulate Pre- and Post-Process Responses to Knowledge Questions with Don't Know"
 <script>
   docsearch({
     
-    apiKey: '',
+    
+    apiKey: 'd9b2198580fb6e978e06524d7bc58092',
     indexName: 'guess',
     inputSelector: 'input#search-input.form-control',
-    debug: false // Set debug to true if you want to inspect the dropdown
+    transformData: function(hits) {
+      return hits.map(function (hit) {
+        hit.url = updateHitURL(hit);
+        return hit;
+      });
+    }
   });
 </script>
 

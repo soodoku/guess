@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://soodoku.github.io/guess/index.html</loc>
+  </url>
+  <url>
     <loc>http://soodoku.github.io/guess/reference/alldat.html</loc>
   </url>
   <url>
