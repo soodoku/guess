@@ -72,7 +72,7 @@ To adjust estimates of learning for standard correction of guessing, use `stnd_c
 1. For current purposes, we assume missing responses to indicate ignorance. Thus functions internally code missing responses as 0.
 2. If the items offer an option to mark `Don't know`, code all `Don't Know` responses as 'd'.
 
-```{r stndcor}
+```{r eval = FALSE, stndcor}
 # Load library
 library(guess)
 
@@ -94,7 +94,7 @@ stnd_cor(pre_test, pst_test, lucky)
 
 #### Transition Matrix
 
-```{r transmat}
+```{r eval = FALSE, transmat}
 # Without Don't Know
 pre_test_var <- c(1, 0, 0, 1, 0, 1, 0) 
 pst_test_var <- c(1, 0, 1, 1, 0, 1, 1)
@@ -108,7 +108,7 @@ print(transmat(pre_test_var, pst_test_var))
 
 #### Adjusting Using the Latent Class Model
 
-```{r guesstimate}
+```{r eval = FALSE, guesstimate}
 # load(system.file("data/alldat.rda", package = "guess"))
 load("../data/alldat.rda")
 
@@ -142,7 +142,7 @@ round(res_dk$est.learning[1:4], 3)
 
 Account for propensity to guess and item level attribute that a guess would be lucky. 
 
-```{r grp_adjust}
+```{r eval = FALSE, grp_adjust}
 pre_test_var <- data.frame(pre=c(1, 0, 1, 1, 0, "d", "d", 0, 1, NA, 0, 1, 1, 1, 1, 0, 0, 'd', 0, 0))
 pst_test_var <- data.frame(pst=c(1, 0, NA, 1, "d", 1, 0, 1, 1, "d", 1, 1, 1, 0, 1, 1, 0, 1, 1, 0))
 grp = c(rep(1, 10), rep(0, 10))
@@ -163,7 +163,7 @@ grp0_adj - grp1_adj
 
 #### Standard Errors
 
-```{r lca_err}
+```{r eval = FALSE, lca_err}
 
 # Raw 
 # Generate some data without DK
@@ -184,7 +184,7 @@ sapply(lca_dk_stnd_err, function(x) round(head(x, 1), 3))
 
 #### Fit
 
-```{r fit_lca}
+```{r eval = FALSE, fit_lca}
 fit <- fit_nodk(alldat[, t1], alldat[, t2], res$param.lca[4, ], res$param.lca[1:3, ])
 
 print(fit[, 1:4])
